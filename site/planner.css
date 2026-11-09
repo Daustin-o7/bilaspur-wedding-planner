@@ -1,0 +1,52 @@
+:root { color-scheme: light; }
+body { font-size: 15px; }
+.serif-heading { font-family: Georgia, 'Times New Roman', serif; }
+.planner-card { background: #fff; border: 1px solid #e8dec8; border-radius: 1rem; padding: 1.25rem; margin-bottom: 1rem; }
+.planner-card h2, .planner-card h3, dialog h2 { font-family: Georgia,serif; color: #2a3a2c; font-size: 1.4rem; font-weight: bold; margin-bottom: .6rem; }
+.planner-card p, dialog p { margin: .6rem 0; line-height: 1.6; }
+.planner-button { background: #49634d; color: white; border-radius: .6rem; padding: .65rem .9rem; margin: .25rem; font-size: .85rem; font-weight: 600; }
+.planner-button.secondary { background: #f3efe6; color: #2a3a2c; border: 1px solid #c5d6c6; }
+button:disabled { opacity: .5; cursor: wait; }
+button, input, select { min-height: 36px; }
+input[type=checkbox] { min-width: 22px; min-height: 22px; }
+:focus-visible { outline: 3px solid #8f6d2e !important; outline-offset: 3px; }
+.planner-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: .8rem; }
+.planner-field { display: flex; flex-direction: column; gap: .3rem; font-size: .8rem; font-weight: 600; }
+.planner-field input, .planner-field select, .planner-field textarea, dialog input, dialog textarea { border: 1px solid #c5d6c6; border-radius: .5rem; padding: .5rem; width: 100%; background: #faf8f5; font-weight: normal; }
+.planner-alert { border-left: 4px solid #b08a43; background: #fffbeb; padding: .9rem; border-radius: .4rem; margin: .75rem 0; }
+.planner-ok { color: #2a3a2c; }
+.planner-list { list-style: disc; padding-left: 1.4rem; line-height: 1.7; }
+dialog { border: 1px solid #c5d6c6; border-radius: 1rem; padding: 1.5rem; width: min(650px,95vw); max-height: 90vh; overflow: auto; }
+dialog::backdrop { background: #0008; }
+dialog label { display: block; margin-top: .75rem; font-size: .9rem; }
+#connection-status { white-space: pre-wrap; }
+.row-extras { margin-top: .6rem; width: 100%; }
+.row-extras summary { cursor: pointer; color: #384d3b; font-size: .8rem; font-weight: 600; }
+.row-extras[open] { background: #f4f7f4; padding: .7rem; border-radius: .5rem; }
+.row-extras .planner-grid { margin-top: .5rem; }
+.task-text-input { white-space: normal; min-width: 180px; }
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: 1rem; z-index: 100; }
+#family-toolbar { position: sticky; top: 0; z-index: 35; background: #faf8f5f5; border-bottom: 1px solid #e8dec8; padding: .5rem; }
+#cloud-problem { margin: .5rem auto; max-width: 1200px; }
+@media (max-width: 640px) {
+  .planner-grid { grid-template-columns: 1fr; }
+  .planner-card { padding: 1rem; }
+  .text-xs, input, select, textarea { font-size: 14px !important; }
+  header img { max-height: 160px; object-fit: cover; }
+  .quick-entry, input.flex-1 { min-width: 0; }
+}
+@media print {
+  @page { size: A4 landscape; margin: 12mm; }
+  header, footer, #family-toolbar, dialog, .no-print, button, #toast-container, iframe { display: none !important; }
+  main { padding: 0 !important; max-width: none !important; }
+  .tab-panel.hidden { display: none !important; }
+  .overflow-x-auto { overflow: visible !important; }
+  table { width: 100%; table-layout: fixed; }
+  input:not([type=checkbox]), textarea, select { display: none !important; }
+  .print-value { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 9pt; }
+  .print-value.hidden { display: inline !important; }
+  th,td { padding: 3px !important; overflow-wrap: anywhere; }
+  .planner-card { break-inside: avoid; }
+  .row-extras { break-inside: avoid; }
+}

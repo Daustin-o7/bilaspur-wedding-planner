@@ -1,0 +1,11 @@
+node_modules/
+test-results/
+playwright-report/
+*.docx
+*.pdf
+Christian_Wedding_Master_Checklist_Bilaspur.md
+rooted_in_faith_joined_in_love_bilaspur_christian_wedding_collaboration_hub.html
+scripts/prepare-site.py
+*.local.*
+.env*
+*.backup.json

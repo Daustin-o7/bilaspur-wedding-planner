@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<title>Connect your wedding planner to Google</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="planner.css">
+<body class="bg-ivory">
+<main class="max-w-3xl mx-auto p-6">
+<a class="planner-button secondary inline-block" href="index.html">← Wedding planner</a>
+<div class="planner-card">
+<h1 class="serif-heading text-3xl font-bold">One-time Google setup</h1>
+<p>Sign in using the wedding owner’s Google account. Allow about 10–15 minutes. Family members will use your private edit link and do not need to do these steps.</p>
+<p><strong>Until the website says “Saved to Google”, edits are only on that device.</strong> The owner’s Sheet, Drive folder and Calendar are created privately. Nothing needs to be made publicly readable.</p>
+<h2>1. Create the Apps Script project</h2>
+<ol class="list-decimal pl-6 space-y-3">
+<li>Open <a class="underline" href="https://script.google.com/home/start" target="_blank" rel="noopener noreferrer">Google Apps Script</a>, check the account avatar, and choose <strong>New project</strong>. Name it <strong>Bilaspur Wedding Hub</strong>.</li>
+<li>Open <a class="underline" href="google-setup/Code.gs.txt" target="_blank">Code.gs</a>, copy all its contents, and replace the editor’s existing Code.gs contents.</li>
+<li>In Apps Script, click <strong>+ → Script</strong>, name it <strong>Core</strong>, and paste all of <a class="underline" href="google-setup/Core.gs.txt" target="_blank">Core.gs</a>.</li>
+<li>Open <strong>Project Settings</strong> (gear) and enable <strong>Show “appsscript.json” manifest file in editor</strong>. Return to the editor and replace that file with <a class="underline" href="google-setup/appsscript.json.txt" target="_blank">this manifest</a>. Save the project. The timezone is Asia/Kolkata.</li>
+</ol>
+<h2>2. Authorize the owner’s storage</h2>
+<ol class="list-decimal pl-6 space-y-3">
+<li>Select <strong>setupWedding</strong> in the function dropdown and click <strong>Run</strong>.</li>
+<li>Review and grant access to Sheets, Drive, Calendar and script triggers for your own project. Google may show an unverified-app screen because this is a personal script you created. Confirm the project and signed-in account before continuing.</li>
+<li>Wait for <strong>SETUP COMPLETE</strong> in the execution log. Running setup again reuses the existing resources.</li>
+<li>Under <strong>Project Settings → Script Properties</strong>, copy <strong>FAMILY_KEY</strong> privately. It is a 64-character edit key. Do not put it in a GitHub file, issue or screenshot.</li>
+</ol>
+<h2>3. Deploy the web app</h2>
+<ol class="list-decimal pl-6 space-y-3">
+<li>Choose <strong>Deploy → New deployment → Web app</strong>.</li>
+<li>Set <strong>Execute as: Me</strong> and <strong>Who has access: Anyone</strong>. Family access is checked by the key inside the script. “Anyone with a Google account” will require sign-in and will not work for this anonymous family-link flow.</li>
+<li>Click <strong>Deploy</strong> and copy the <strong>Web app URL ending in /exec</strong>. Do not use the /dev testing URL.</li>
+</ol>
+<h2>4. Connect and share</h2>
+<ol class="list-decimal pl-6 space-y-3">
+<li>Return to the planner and open <strong>Connection &amp; share</strong>. Enter your name, the /exec URL and FAMILY_KEY. Click <strong>Connect &amp; load shared plan</strong>.</li>
+<li>Wait for <strong>Saved to Google • revision …</strong>. A local backup may download when you change workspaces. Keep it.</li>
+<li>Reopen Connection and choose <strong>Copy private family edit link</strong>. Share that link in the family group. The plain GitHub Pages URL opens a local planner on a new device.</li>
+<li>Test on two phones: add a clearly named test task, wait for “Saved to Google”, and check that it appears on the other phone within roughly 10 seconds while no field is being edited. Change it on the second phone, check the first, then delete the test task.</li>
+</ol>
+<p>Relatives tap outside a field to commit their change. Changes save locally first, then to Google. Independent edits merge. If two people change the same field, a conflict box lets you download the draft and choose the value to keep. Polling pauses while someone is typing, a dialog is open, or the tab is hidden.</p>
+<h2>Sheets, Drive, Calendar and Maps</h2>
+<ul class="planner-list">
+<li><strong>Sheet:</strong> live records are stored in Hub_State_A/B with a revision in Hub_Control. Human-readable report tabs refresh within five minutes. Edit records through the website; editing report tabs does not update it.</li>
+<li><strong>Drive:</strong> use Budget → Upload a receipt, then copy its URL into the vendor row. Uploads are private PDFs/images up to 5 MB. In Storage, “Save snapshot” makes a complete backup. The scheduled job also backs up changed plans at most once an hour.</li>
+<li><strong>Calendar:</strong> enter exact IST start/end dates for every active event, deactivate unused drafts, then choose “Update shared wedding calendar”. Repeating this updates the same events; inactive/deleted hub events are removed from the dedicated wedding calendar. Personal-copy links create independent events.</li>
+<li><strong>Access to Google files:</strong> the owner can open all resource links. If other relatives need to open a receipt, the Sheet or Calendar directly, share that specific Google resource with their accounts. They can still edit the website without Google sign-in.</li>
+<li><strong>Maps:</strong> the website supplies venue-name searches. Confirm each exact property and entrance with its manager before sharing directions.</li>
+</ul>
+<h2>Recovery and troubleshooting</h2>
+<ul class="planner-list">
+<li><strong>Invalid response / sign-in page:</strong> confirm Execute as Me, access Anyone, the /exec URL, and that setupWedding completed. Managed Google accounts can prohibit public web apps; the owner must use an account that permits this deployment.</li>
+<li><strong>New backend code:</strong> replace Code.gs, Core.gs and the manifest together, then Deploy → Manage deployments → Edit → New version → Deploy. Saving script code alone does not update the deployed web app.</li>
+<li><strong>Failed network request:</strong> keep the tab open and use Download backup. Retry after connection returns. Do not interpret “saved on this device” as a cloud save.</li>
+<li><strong>Lost edit or accidental delete:</strong> Connection → Recover a device draft lets you download another tab’s draft or the last pre-delete copy. Review it, then Restore backup. A restore syncs replacements and deletions to everyone.</li>
+<li><strong>Corrupted Sheet storage:</strong> stop editing, download any readable device drafts, and preserve the existing Sheet. The simplest recovery is a new Apps Script project with the same files, new setup and deployment, then connect and restore the latest Drive/device backup. Share its new family link.</li>
+<li><strong>Leaked family link:</strong> run rotateFamilyKey in Apps Script, copy the new FAMILY_KEY, reconnect the website and share a replacement link. Old keys stop working. This does not revoke copies that were already downloaded.</li>
+<li><strong>Storage limits:</strong> the shared plan is limited to 2 million JSON characters and 100 event cards. Drive and Apps Script quotas also apply. Keep backup downloads and final printed contact/run sheets.</li>
+</ul>
+<p><strong>Anyone holding the private family link can read, add, edit and delete the shared plan.</strong> Guest contacts, room information and budgets are included. Keep the link within the planning group. On a shared computer, clear this site’s browser data after exporting needed drafts; it remembers the connection and local data.</p>
+</div>
+</main>
+</body>
+</html>

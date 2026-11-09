@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooted in Faith, Joined in Love — Bilaspur Christian Wedding Collaboration Hub</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="planner.css">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1F2937;
+      font-family: 'Inter', sans-serif;
+    }
+    .serif-heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #F3EFE6;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #C5D6C6;
+      border-radius: 9999px;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      .print-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-sage-200 selection:text-sage-800">
+  <a class="skip-link" href="#main-content">Skip to planner</a>
+
+  <!-- Toast Notification -->
+  <div id="toast-container" role="status" aria-live="polite" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Top Hero & Wedding Master Header -->
+  <header class="relative bg-cream border-b border-champagne overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <!-- Left: Theme & Master Details -->
+        <div class="lg:col-span-7 space-y-3">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <span class="px-2.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold tracking-wide">
+              ⛪ Church: CNI Church Civil Lines
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold tracking-wide">
+              🏨 Stay, Engagement, Mehendi, Haldi &amp; Sangeet: Mandapam Marriage Resort
+            </span>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-semibold tracking-wide">
+              ✨ Reception: CPI Hotel Bilaspur
+            </span>
+          </div>
+          <h1 id="hero-title-display" class="serif-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-sage-800 leading-tight">
+            “Rooted in Faith, Joined in Love”
+          </h1>
+          <p id="hero-subtitle-display" class="text-sm sm:text-base text-gray-600 max-w-2xl">
+            One family plan • एक साझा विवाह योजना<br>Set up the family edit link to connect private Google storage. Until then, edits stay on this device.
+          </p>
+
+          <!-- Quick Master Summary Pills -->
+          <div class="pt-2 flex flex-wrap items-center gap-2.5 text-xs sm:text-sm">
+            <div class="bg-white/90 border border-champagne rounded-xl px-3 py-2 shadow-sm flex items-center gap-2">
+              <span class="text-gold-600 font-semibold">Couple:</span>
+              <span id="header-couple-display" class="font-semibold text-gray-800">Bride &amp; Groom</span>
+            </div>
+            <div class="bg-white/90 border border-champagne rounded-xl px-3 py-2 shadow-sm flex items-center gap-2">
+              <span class="text-gold-600 font-semibold">Date:</span>
+              <span id="header-date-display" class="font-semibold text-gray-800">TBD</span>
+              <span id="header-countdown-badge" class="px-2 py-0.5 rounded-full bg-sage-600 text-white text-xs font-medium">8-Wk Plan</span>
+            </div>
+            <div class="bg-white/90 border border-champagne rounded-xl px-3 py-2 shadow-sm flex items-center gap-2">
+              <span class="text-gold-600 font-semibold">Guests:</span>
+              <span id="header-guests-display" class="font-semibold text-gray-800">0 Total</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Floral Banner Card + Live Google Sheet Auto-Sync Status -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden border border-champagne shadow-md bg-white">
+            <img src="assets/banner.jpg" alt="Ivory and Sage Floral Wedding Arrangement" class="w-full h-36 sm:h-40 object-cover" />
+            <div class="p-4 bg-white/95 backdrop-blur-sm border-t border-champagne">
+              <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-sage-700 mb-1.5">
+                <span>Master Checklist Progress</span>
+                <span id="global-progress-text">0 / 0 Completed (0%)</span>
+              </div>
+              <div class="w-full h-3 bg-cream rounded-full overflow-hidden border border-champagne">
+                <div id="global-progress-bar" class="h-full bg-sage-600 transition-all duration-300" style="width: 0%"></div>
+              </div>
+              <div class="mt-3 flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5">
+                  <span id="sync-pulse-dot" class="h-2.5 w-2.5 rounded-full bg-amber-500"></span>
+                  <span id="last-saved-indicator" class="text-xs font-medium text-emerald-800">Local mode • Google not connected</span>
+                </div>
+                <div class="flex items-center gap-1.5 no-print">
+                  <button id="btn-open-cloud-bridge" type="button" class="px-2.5 py-1.5 rounded-lg bg-sage-100 hover:bg-sage-200 text-sage-800 text-xs font-semibold transition" title="Connect private Google storage">
+                    ⚡ Connect Google
+                  </button>
+                  <a href="SETUP.html" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold shadow-sm transition">
+                    Google setup ↗
+                  </a>
+                  <button id="btn-print-hub" type="button" class="px-2.5 py-1.5 rounded-lg bg-cream hover:bg-champagne text-gray-800 text-xs font-medium border border-champagne transition">
+                    Print current tab
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary Navigation Bar -->
+    <div class="bg-white border-t border-champagne sticky top-0 z-30 no-print">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center gap-1 overflow-x-auto py-2 custom-scroll" aria-label="Main Tabs">
+          <button type="button" data-tab="dashboard" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-sage-600 text-white shadow-sm">
+            1. Overview &amp; Master Info
+          </button>
+          <button type="button" data-tab="checklist" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-gray-700 hover:bg-cream">
+            2. Master Checklist (<span id="tab-badge-tasks">0</span>)
+          </button>
+          <button type="button" data-tab="roles" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-gray-700 hover:bg-cream">
+            3. Family Roles &amp; Command Sheet
+          </button>
+          <button type="button" data-tab="budget" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-gray-700 hover:bg-cream">
+            4. Budget &amp; Payments
+          </button>
+          <button type="button" data-tab="guests" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-gray-700 hover:bg-cream">
+            5. Guest &amp; RSVP Tracker (<span id="tab-badge-extended">0</span>)
+          </button>
+          <button type="button" data-tab="addons" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-amber-900 bg-amber-50 hover:bg-amber-100 border border-amber-300">
+            🥁 Dhol, Musicians, Add-Ons &amp; Misc Duties (<span id="tab-badge-addons">0</span>)
+          </button>
+          <button type="button" data-tab="schedules" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-gray-700 hover:bg-cream">
+            6. Schedules, Events &amp; Backup
+          </button>
+          <button type="button" data-tab="workspace" class="nav-tab-btn px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300">
+            📍 Maps, Calendar, Intake &amp; Storage
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="main-content" tabindex="-1" class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+
+    <!-- ==================== TAB 1: DASHBOARD & MASTER INFO ==================== -->
+    <section id="tab-panel-dashboard" class="tab-panel space-y-6">
+      <!-- Three-Venue Architecture Banner -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-xs font-semibold">Venue 1 • Pre-Wedding &amp; Stay</span>
+            <a href="https://www.justdial.com/Bilaspur-Chhattisgarh/Mandapam-Marriage-Resort-Beside-Nexa-Showroom-Tifra/9999P7752-7752-180420160554-Y7K7_BZDET" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sage-700 hover:underline">Venue Details ↗</a>
+          </div>
+          <h3 class="serif-heading text-xl font-bold text-sage-800">Mandapam Marriage Resort</h3>
+          <p class="text-xs text-gray-600">Beside NEXA Showroom, Opp. New High Tech Bus Stand, 151, Raipur Rd, Tifra, Bilaspur</p>
+          <p class="text-xs font-semibold text-amber-800 pt-1">Functions: Guest Stay, Engagement, Mehendi, Haldi, Dhol &amp; Sangeet Night (with Games)</p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold">Venue 2 • Holy Matrimony</span>
+            <span class="text-xs text-gray-500">Civil Lines, Bilaspur</span>
+          </div>
+          <h3 class="serif-heading text-xl font-bold text-sage-800">CNI Church Civil Lines</h3>
+          <p class="text-xs text-gray-600">Beside Civil Lines Thana, Bilaspur, Chhattisgarh</p>
+          <p class="text-xs font-semibold text-sage-700 pt-1">Function: Solemn Christian Marriage Service, Choir, Vows, Register Signing &amp; Portraits</p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm space-y-1.5">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-semibold">Venue 3 • Grand Reception</span>
+            <a href="https://www.hotelcpi.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sage-700 hover:underline">hotelcpi.com ↗</a>
+          </div>
+          <h3 class="serif-heading text-xl font-bold text-sage-800">Hotel Central Point International (CPI)</h3>
+          <p class="text-xs text-gray-600">Plot 1, Opp. New High Court, Raipur Road, Bodri/Mangla, Bilaspur (+91 96695 07000)</p>
+          <p class="text-xs font-semibold text-emerald-800 pt-1">Function: Evening Wedding Reception, Blessing Wall, Speeches, Cake &amp; Gala Dinner</p>
+        </div>
+      </div>
+
+      <!-- Editable Master Plan Card -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-cream">
+          <div>
+            <h2 class="serif-heading text-2xl font-bold text-sage-800">Editable Wedding Master Plan Details</h2>
+            <p class="text-xs sm:text-sm text-gray-500">Edit the plan below, then tap outside the field to save. The save indicator tells you whether changes are local or saved to Google. Connected storage links appear in the Storage tab.</p>
+          </div>
+          <button type="button" id="btn-jump-workspace" class="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs font-semibold transition self-start sm:self-auto">
+            Open Maps, Calendar, Forms &amp; Sheet →
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+          <div>
+            <label for="meta-theme-title" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Website Banner Title</label>
+            <input id="meta-theme-title" type="text" placeholder="“Rooted in Faith, Joined in Love”" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-bride" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Bride's Full Name</label>
+            <input id="meta-bride" type="text" placeholder="e.g., Grace Masih" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-groom" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Groom's Full Name</label>
+            <input id="meta-groom" type="text" placeholder="e.g., Daniel Lal" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-date" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Wedding Date (T)</label>
+            <input id="meta-date" type="date" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+
+          <div>
+            <label for="meta-coordinator" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Overall Family Coordinator</label>
+            <input id="meta-coordinator" type="text" placeholder="Family wedding coordinator" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-mandapam-schedule" class="block text-xs font-semibold text-amber-800 uppercase mb-1">Mandapam Resort Functions &amp; Dates</label>
+            <input id="meta-mandapam-schedule" type="text" placeholder="Engagement, Mehendi, Haldi & Sangeet (T-2 to T-1)" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-mandapam-stay" class="block text-xs font-semibold text-amber-800 uppercase mb-1">Mandapam Guest Stay / Rooms Info</label>
+            <input id="meta-mandapam-stay" type="text" placeholder="Mandapam Marriage Resort, Tifra (Check-in T-2)" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-church-time" class="block text-xs font-semibold text-sage-800 uppercase mb-1">CNI Church Service Time</label>
+            <input id="meta-church-time" type="text" placeholder="Reporting 9:30 AM | Service 10:00 AM" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+
+          <div>
+            <label for="meta-reception-time" class="block text-xs font-semibold text-emerald-800 uppercase mb-1">CPI Reception Time</label>
+            <input id="meta-reception-time" type="text" placeholder="Arrival 7:00 PM | Programme 7:30 PM" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-cpi-hall" class="block text-xs font-semibold text-emerald-800 uppercase mb-1">CPI Reception Hall (Editable)</label>
+            <input id="meta-cpi-hall" type="text" list="cpi-hall-options" placeholder="e.g., Jashn The Banquet / CP Banquet" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+            <datalist id="cpi-hall-options">
+              <option value="Hotel CPI — Jashn The Banquet"></option>
+              <option value="Hotel CPI — Blanco The Pool Side"></option>
+              <option value="Hotel CPI — CP Banquet & Convention"></option>
+              <option value="Hotel CPI — Deliberation Meeting Hall"></option>
+              <option value="Hotel CPI — The Velvet Room"></option>
+            </datalist>
+          </div>
+          <div>
+            <label for="meta-budget" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Working Budget Ceiling (₹)</label>
+            <input id="meta-budget" type="number" min="0" step="0.01" placeholder="e.g., 1500000" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-rsvp-contact" class="block text-xs font-semibold text-gray-600 uppercase mb-1">RSVP &amp; Transport Help Contact</label>
+            <input id="meta-rsvp-contact" type="text" placeholder="Name & WhatsApp number" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+
+          <div>
+            <label for="meta-bride-guests" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Bride Side Expected Pax</label>
+            <input id="meta-bride-guests" type="number" min="0" placeholder="e.g., 150" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="meta-groom-guests" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Groom Side Expected Pax</label>
+            <input id="meta-groom-guests" type="number" min="0" placeholder="e.g., 150" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="meta-dress-code" class="block text-xs font-semibold text-gray-600 uppercase mb-1">Suggested Dress Code / Function Themes</label>
+            <input id="meta-dress-code" type="text" placeholder="Church & CPI: Ivory, sage, champagne | Haldi: Yellow | Mehendi: Green/Festive | Sangeet: Glam" class="meta-input w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Progress Breakdown + Editable Five Priorities Card -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">Progress by Planning Pillar</h3>
+            <button type="button" id="btn-jump-all-tasks" class="text-xs font-semibold text-sage-600 hover:underline">Open Full Checklist →</button>
+          </div>
+          <div id="pillar-progress-list" class="space-y-3"></div>
+        </div>
+
+        <!-- Editable Priorities & Venue References -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-sage-800 text-white rounded-2xl p-5 sm:p-6 shadow-sm space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="text-xs uppercase tracking-widest text-sage-200 font-semibold">Section 1 • Core Family Priorities (Editable)</div>
+              <button type="button" id="btn-add-priority" class="px-2.5 py-1 rounded-lg bg-sage-700 hover:bg-sage-600 text-xs font-semibold text-white">+ Add</button>
+            </div>
+            <h3 class="serif-heading text-2xl font-bold">Our Wedding Priorities</h3>
+            <div id="priorities-list-container" class="space-y-2"></div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-3">
+            <h3 class="serif-heading text-xl font-bold text-sage-800">Section 27 • Private Google Storage &amp; Reference Links</h3>
+            <ul class="space-y-2 text-xs sm:text-sm">
+              <li>
+                <a href="SETUP.html" target="_blank" rel="noopener noreferrer" class="text-emerald-800 font-bold hover:underline flex items-center gap-1.5">
+                  <span>📊 Set up private Sheets, Drive &amp; Calendar ↗</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.justdial.com/Bilaspur-Chhattisgarh/Mandapam-Marriage-Resort-Beside-Nexa-Showroom-Tifra/9999P7752-7752-180420160554-Y7K7_BZDET" target="_blank" rel="noopener noreferrer" class="text-amber-800 font-semibold hover:underline flex items-center gap-1.5">
+                  <span>↗ Mandapam Marriage Resort, Tifra, Bilaspur (Stay, Engagement, Mehendi, Haldi &amp; Sangeet)</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.hotelcpi.com/" target="_blank" rel="noopener noreferrer" class="text-emerald-800 font-semibold hover:underline flex items-center gap-1.5">
+                  <span>↗ Hotel Central Point International (CPI), Raipur Rd, Bilaspur (Grand Reception)</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.indiacode.nic.in/indiacode/handle/123456789/2186?view_type=browse" target="_blank" rel="noopener noreferrer" class="text-sage-700 font-semibold hover:underline flex items-center gap-1.5">
+                  <span>↗ India Code — The Indian Christian Marriage Act, 1872</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://sewasetu.cgstate.gov.in/" target="_blank" rel="noopener noreferrer" class="text-sage-700 font-semibold hover:underline flex items-center gap-1.5">
+                  <span>↗ Chhattisgarh Sewa Setu — Marriage Registration &amp; Certificate</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 25: Live Guest-Facing Information Template Generator -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+          <div>
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">Section 25 • Wedding-Day &amp; Pre-Wedding Guest Notice (Editable WhatsApp Template)</h3>
+            <p class="text-xs text-gray-500">Auto-updates from your Master Plan fields above, or edit the text directly inside the box before copying.</p>
+          </div>
+          <button type="button" id="btn-copy-guest-template" class="px-4 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition self-start sm:self-auto">
+            Copy Guest Notice Text
+          </button>
+        </div>
+        <textarea aria-label="Guest notice in English" id="guest-template-preview" rows="11" class="w-full bg-ivory border border-champagne rounded-xl p-4 text-xs sm:text-sm text-gray-800 font-sans leading-relaxed focus:outline-none focus:ring-2 focus:ring-sage-500"></textarea>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: INTERACTIVE MASTER CHECKLIST ==================== -->
+    <section id="tab-panel-checklist" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-4 sm:p-5 space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+          <div>
+            <h2 class="serif-heading text-2xl font-bold text-sage-800">Complete Master Checklist (100% Editable Tasks, Sub-Categories, Owners &amp; Notes)</h2>
+            <p class="text-xs text-gray-500">Click any task wording or sub-category to edit it directly, change priority or owner, add notes, or add new tasks.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="btn-open-add-task" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition">
+              + Add Custom Task
+            </button>
+            <button type="button" id="btn-export-tasks-csv" class="px-3.5 py-2 rounded-xl bg-cream hover:bg-champagne text-gray-800 text-xs font-semibold border border-champagne transition">
+              Export Checklist CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+          <div>
+            <label for="filter-search" class="block text-xs font-semibold text-gray-500 uppercase mb-1">Search Tasks</label>
+            <input id="filter-search" type="text" placeholder="Search Mandapam, CPI, pastor, gown..." class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sage-500" />
+          </div>
+          <div>
+            <label for="filter-group" class="block text-xs font-semibold text-gray-500 uppercase mb-1">Planning Pillar</label>
+            <select id="filter-group" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sage-500">
+              <option value="ALL">All Pillars</option>
+              <option value="Timeline & Countdown">Timeline &amp; Countdown</option>
+              <option value="Church & Pre-Wedding">Church &amp; Pre-Wedding</option>
+              <option value="Attire, Rings & Shopping">Attire, Rings &amp; Shopping</option>
+              <option value="Guests, RSVP & Hospitality">Guests, RSVP &amp; Hospitality</option>
+              <option value="CPI Reception, Food & Décor">CPI Reception, Food &amp; Décor</option>
+              <option value="Photo, AV, Budget & Vendors">Photo, AV, Budget &amp; Vendors</option>
+              <option value="Wedding Day, Backup & Post-Wedding">Wedding Day, Backup &amp; Post-Wedding</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-section" class="block text-xs font-semibold text-gray-500 uppercase mb-1">Document Section</label>
+            <select id="filter-section" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sage-500">
+              <option value="ALL">All Sections</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-owner" class="block text-xs font-semibold text-gray-500 uppercase mb-1">Assigned Role / Owner</label>
+            <select id="filter-owner" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sage-500">
+              <option value="ALL">All Roles</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-status" class="block text-xs font-semibold text-gray-500 uppercase mb-1">Completion Status</label>
+            <select id="filter-status" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-sage-500">
+              <option value="ALL">All Tasks</option>
+              <option value="PENDING">Pending Only</option>
+              <option value="DONE">Completed Only</option>
+              <option value="HIGH">High Priority / Sign-off</option>
+              <option value="OVERDUE">Overdue / देरी</option>
+              <option value="BLOCKED">Blocked / बाधा</option>
+              <option value="SKIPPED">Not applicable / लागू नहीं</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-cream text-xs text-gray-600">
+          <span id="filtered-count-label">Showing all tasks</span>
+          <button type="button" id="btn-reset-filters" class="text-sage-700 font-semibold hover:underline">Reset Filters</button>
+        </div>
+      </div>
+
+      <!-- Checklist Container -->
+      <div id="checklist-sections-container" class="space-y-5"></div>
+    </section>
+
+    <!-- ==================== TAB 3: FAMILY ROLES & COMMAND SHEET ==================== -->
+    <section id="tab-panel-roles" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-cream pb-4">
+          <div>
+            <h2 class="serif-heading text-2xl font-bold text-sage-800">Section 1 &amp; 21 • Editable Family Planning Structure &amp; Command Sheet</h2>
+            <p class="text-xs sm:text-sm text-gray-600">
+              Assign a real person and backup to each role. Shared changes save to Google after connection.
+            </p>
+          </div>
+          <button type="button" id="btn-add-role-row" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition self-start sm:self-auto">
+            + Add Family Role
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                <th class="py-3 px-2.5">Role Title (Editable)</th>
+                <th class="py-3 px-2.5">Main Responsibility (Editable)</th>
+                <th class="py-3 px-2.5">Assigned Person (Name)</th>
+                <th class="py-3 px-2.5">Phone / WhatsApp</th>
+                <th class="py-3 px-2.5">Backup Person</th>
+                <th class="py-3 px-2.5 text-right">Tasks</th>
+                <th class="py-3 px-2"></th>
+              </tr>
+            </thead>
+            <tbody id="roles-table-body" class="divide-y divide-cream"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: BUDGET & PAYMENTS TRACKER ==================== -->
+    <section id="tab-panel-budget" class="tab-panel hidden space-y-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-gray-500">Working Budget Ceiling</div>
+          <div id="budget-card-ceiling" class="text-xl font-bold text-sage-800 mt-1">₹0</div>
+          <div class="text-xs text-gray-500 mt-1">Set in Overview tab</div>
+        </div>
+        <div class="bg-amber-50 rounded-2xl border border-amber-200 p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-amber-800">10% Contingency Reserve</div>
+          <div id="budget-card-contingency" class="text-xl font-bold text-amber-900 mt-1">₹0</div>
+          <div class="text-xs text-amber-700 mt-1">Keep separate from décor</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-gray-500">Total Agreed Spend</div>
+          <div id="budget-card-agreed" class="text-xl font-bold text-gray-900 mt-1">₹0</div>
+          <div id="budget-card-variance" class="text-xs text-sage-700 mt-1">Within safe limit</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-gray-500">Total Paid to Date</div>
+          <div id="budget-card-advance" class="text-xl font-bold text-sage-700 mt-1">₹0</div>
+          <div class="text-xs text-gray-500 mt-1">Verify receipts saved</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-gray-500">Pending Balance Due</div>
+          <div id="budget-card-balance" class="text-xl font-bold text-rose-700 mt-1">₹0</div>
+          <div class="text-xs text-gray-500 mt-1">Sum of unpaid vendor balances</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h2 class="serif-heading text-2xl font-bold text-sage-800">Section 19 • Master Budget &amp; Vendor Payment Tracker (Mandapam + CNI + CPI)</h2>
+            <p class="text-xs text-gray-500">Use all-inclusive agreed prices (GST, travel, overtime). Record a package once; do not repeat included catering. Add-on estimates are not automatically included in this ledger. Paid means all payments to date.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button type="button" id="btn-add-budget-row" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition">
+              + Add Budget Line
+            </button>
+            <button type="button" id="btn-export-budget-csv" class="px-3.5 py-2 rounded-xl bg-cream hover:bg-champagne text-gray-800 text-xs font-semibold border border-champagne transition">
+              Export Budget CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                <th class="py-3 px-2">Item / Category</th>
+                <th class="py-3 px-2">Guide %</th>
+                <th class="py-3 px-2">Vendor Name</th>
+                <th class="py-3 px-2 text-right">Quoted (₹)</th>
+                <th class="py-3 px-2 text-right">Agreed (₹)</th>
+                <th class="py-3 px-2 text-right">Paid to date (₹)</th>
+                <th class="py-3 px-2 text-right">Balance (₹)</th>
+                <th class="py-3 px-2">Due Date</th>
+                <th class="py-3 px-2">Contract/Receipt</th>
+                <th class="py-3 px-2">Owner</th>
+                <th class="py-3 px-1"></th>
+              </tr>
+            </thead>
+            <tbody id="budget-table-body" class="divide-y divide-cream"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: SIMPLE INVITE LIST (BRIDE / GROOM / COMMON) + CLOSE FAMILY STAY RSVP ==================== -->
+    <section id="tab-panel-guests" class="tab-panel hidden space-y-8">
+
+      <!-- PART A: SUPER SIMPLE 3-COLUMN INVITE LIST (BRIDE | GROOM | COMMON — SEND BY ONE ONLY) -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cream pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sage-700">Part 1 • Simple Invite List (Far / General Guests — No Need to Open Google Sheets!)</span>
+            <h2 class="serif-heading text-2xl sm:text-3xl font-bold text-sage-800">Bride List • Groom List • Common People (Send Only One Invite)</h2>
+            <p class="text-xs sm:text-sm text-gray-600">
+              Type a guest name directly below and press <strong>Enter</strong>—nobody needs to open the spreadsheet! Matching names appear in <strong>Common People</strong> for review. Confirm they are the same household; add a locality to distinguish people with identical names. Name-only invites are not counted as confirmed catering guests.
+            </p>
+          </div>
+          <button type="button" id="btn-export-extended-csv" class="px-3.5 py-2 rounded-xl bg-cream hover:bg-champagne text-gray-800 text-xs font-semibold border border-champagne transition self-start sm:self-auto">
+            Export Invite Lists CSV
+          </button>
+        </div>
+
+        <!-- Clean 3-Column Layout: Bride Names | Common Names (Send Only 1) | Groom Names -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+
+          <!-- Column 1: Bride's Simple Guest List -->
+          <div class="rounded-2xl border border-rose-200 bg-rose-50/30 overflow-hidden flex flex-col">
+            <div class="bg-rose-100/80 px-4 py-3 border-b border-rose-200 flex items-center justify-between">
+              <h3 class="serif-heading text-xl font-bold text-rose-950">👰 Bride's Invite List</h3>
+              <span id="simple-bride-count" class="px-2.5 py-0.5 rounded-full bg-white text-rose-900 text-xs font-bold">0</span>
+            </div>
+            <div class="p-3 bg-white border-b border-rose-100 flex items-center gap-2">
+              <input id="quick-bride-name" type="text" placeholder="Type guest name & press Enter..." class="flex-1 rounded-lg border border-champagne bg-ivory px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-rose-400" />
+              <button type="button" id="btn-quick-bride-submit" class="px-3 py-1.5 rounded-lg bg-rose-700 hover:bg-rose-800 text-white text-xs font-semibold">+ Add</button>
+            </div>
+            <div id="simple-bride-list" class="divide-y divide-rose-100 bg-white flex-1 max-h-96 overflow-y-auto custom-scroll"></div>
+          </div>
+
+          <!-- Column 2: Common People (Send Only 1 Invite!) -->
+          <div class="rounded-2xl border-2 border-amber-300 bg-amber-50/40 overflow-hidden flex flex-col shadow-xs">
+            <div class="bg-amber-200/80 px-4 py-3 border-b border-amber-300 flex items-center justify-between">
+              <div>
+                <h3 class="serif-heading text-xl font-bold text-amber-950">🤝 Common People</h3>
+                <p class="text-[11px] text-amber-900 font-medium">Known to both — send by ONE side only!</p>
+              </div>
+              <span id="simple-common-count" class="px-2.5 py-0.5 rounded-full bg-white text-amber-950 text-xs font-bold">0</span>
+            </div>
+            <div class="p-3 bg-white border-b border-amber-200 flex items-center gap-2">
+              <input id="quick-common-name" type="text" placeholder="Or add common guest directly..." class="flex-1 rounded-lg border border-champagne bg-ivory px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500" />
+              <button type="button" id="btn-quick-common-submit" class="px-3 py-1.5 rounded-lg bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold">+ Add</button>
+            </div>
+            <div id="simple-common-list" class="divide-y divide-amber-100 bg-white flex-1 max-h-96 overflow-y-auto custom-scroll"></div>
+          </div>
+
+          <!-- Column 3: Groom's Simple Guest List -->
+          <div class="rounded-2xl border border-sky-200 bg-sky-50/30 overflow-hidden flex flex-col">
+            <div class="bg-sky-100/80 px-4 py-3 border-b border-sky-200 flex items-center justify-between">
+              <h3 class="serif-heading text-xl font-bold text-sky-950">🤵 Groom's Invite List</h3>
+              <span id="simple-groom-count" class="px-2.5 py-0.5 rounded-full bg-white text-sky-900 text-xs font-bold">0</span>
+            </div>
+            <div class="p-3 bg-white border-b border-sky-100 flex items-center gap-2">
+              <input id="quick-groom-name" type="text" placeholder="Type guest name & press Enter..." class="flex-1 rounded-lg border border-champagne bg-ivory px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-400" />
+              <button type="button" id="btn-quick-groom-submit" class="px-3 py-1.5 rounded-lg bg-sky-700 hover:bg-sky-800 text-white text-xs font-semibold">+ Add</button>
+            </div>
+            <div id="simple-groom-list" class="divide-y divide-sky-100 bg-white flex-1 max-h-96 overflow-y-auto custom-scroll"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PART B: CLOSE FAMILY & MANDAPAM STAY RSVP TRACKER -->
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div class="bg-white rounded-2xl border border-champagne p-3.5 shadow-sm">
+            <div class="text-xs text-gray-500 font-semibold uppercase">Confirmed Close Pax</div>
+            <div id="guest-stat-confirmed" class="text-xl font-bold text-sage-700 mt-1">0</div>
+            <div class="text-xs text-gray-400">Use event RSVP counts below</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-champagne p-3.5 shadow-sm">
+            <div class="text-xs text-gray-500 font-semibold uppercase">Pending / Maybe</div>
+            <div id="guest-stat-pending" class="text-xl font-bold text-amber-600 mt-1">0</div>
+            <div class="text-xs text-gray-400">Follow up needed</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-champagne p-3.5 shadow-sm">
+            <div class="text-xs text-gray-500 font-semibold uppercase">Bride-side Pax</div>
+            <div id="guest-stat-bride" class="text-xl font-bold text-gray-800 mt-1">0</div>
+            <div class="text-xs text-gray-400">Adults + Children</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-champagne p-3.5 shadow-sm">
+            <div class="text-xs text-gray-500 font-semibold uppercase">Groom-side Pax</div>
+            <div id="guest-stat-groom" class="text-xl font-bold text-gray-800 mt-1">0</div>
+            <div class="text-xs text-gray-400">Adults + Children</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-champagne p-3.5 shadow-sm">
+            <div class="text-xs text-gray-500 font-semibold uppercase">Stay requests</div>
+            <div id="guest-stat-rooms" class="text-xl font-bold text-indigo-700 mt-1">0</div>
+            <div class="text-xs text-gray-400">Family groups, not room count</div>
+          </div>
+          <div class="bg-white rounded-2xl border border-champagne p-3.5 shadow-sm">
+            <div class="text-xs text-gray-500 font-semibold uppercase">Pickups Needed</div>
+            <div id="guest-stat-pickups" class="text-xl font-bold text-teal-700 mt-1">0</div>
+            <div class="text-xs text-gray-400">Bilaspur Jn / Airport</div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-800">Part 2 • Close Family &amp; Outstation Stay @ Mandapam Marriage Resort</span>
+              <h2 class="serif-heading text-2xl font-bold text-sage-800">Master Household RSVP, Room Stay &amp; Pickup Sheet</h2>
+              <p class="text-xs text-gray-500">Enter every attending household once here, including general invitees. Use exact event attendance below for food counts; do not count names in the invite lists again.</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" id="btn-add-guest-row" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition">
+                + Add Guest / Family Group
+              </button>
+              <button type="button" id="btn-export-guests-csv" class="px-3.5 py-2 rounded-xl bg-cream hover:bg-champagne text-gray-800 text-xs font-semibold border border-champagne transition">
+                Export RSVP CSV
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                  <th class="py-3 px-2">ID</th>
+                  <th class="py-3 px-2">Guest / Family Name</th>
+                  <th class="py-3 px-2">Side</th>
+                  <th class="py-3 px-2">Category</th>
+                  <th class="py-3 px-2 text-right">Adults</th>
+                  <th class="py-3 px-2 text-right">Kids</th>
+                  <th class="py-3 px-2">RSVP Status</th>
+                  <th class="py-3 px-2">Dietary / Meal</th>
+                  <th class="py-3 px-2">Mandapam Room?</th>
+                  <th class="py-3 px-2">Pickup?</th>
+                  <th class="py-3 px-2">Room # / Table Note</th>
+                  <th class="py-3 px-2">Phone</th>
+                  <th class="py-3 px-2"></th>
+                </tr>
+              </thead>
+              <tbody id="guest-table-body" class="divide-y divide-cream"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== NEW TAB: DHOL, MUSICIANS, SPECIAL ADD-ONS & MISCELLANEOUS DUTIES ==================== -->
+    <section id="tab-panel-addons" class="tab-panel hidden space-y-8">
+      <!-- Summary KPIs for Add-Ons & Misc Duties -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-amber-800">Dhol, Musicians &amp; Add-Ons</div>
+          <div id="addon-stat-total" class="text-xl font-bold text-sage-800 mt-1">0 Items</div>
+          <div class="text-xs text-gray-500 mt-0.5">Across Mandapam, Church &amp; CPI</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-emerald-800">Booked / Confirmed</div>
+          <div id="addon-stat-booked" class="text-xl font-bold text-emerald-700 mt-1">0 Booked</div>
+          <div class="text-xs text-gray-500 mt-0.5">Artists &amp; special effects</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-gray-600">Add-Ons Total Cost</div>
+          <div id="addon-stat-cost" class="text-xl font-bold text-gray-900 mt-1">₹0</div>
+          <div class="text-xs text-gray-500 mt-0.5">Estimated / agreed spend</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-champagne p-4 shadow-sm">
+          <div class="text-xs font-semibold uppercase text-sage-800">Misc Duties &amp; Errands</div>
+          <div id="misc-stat-progress" class="text-xl font-bold text-sage-700 mt-1">0 / 0 Done</div>
+          <div class="text-xs text-gray-500 mt-0.5">On-ground miscellaneous tasks</div>
+        </div>
+      </div>
+
+      <!-- SECTION 1: DHOL, MUSICIANS, CHOIR & SPECIAL ADD-ONS -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cream pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-800">Part 1 • Entertainment, Music &amp; Special Effects</span>
+            <h2 class="serif-heading text-2xl sm:text-3xl font-bold text-sage-800">🥁 Dhol, Musicians, Choir &amp; Special Add-Ons</h2>
+            <p class="text-xs sm:text-sm text-gray-600">
+              Manage Dhol players for Haldi/Sangeet/Entry at Mandapam Marriage Resort, CNI Church Choir &amp; Organist, Live Gospel/Acoustic Singers, DJ &amp; LED Wall, Cold Sparklers/Dry Ice Fog, Photobooth, and Couple Car Décor. Every cell is editable.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+            <button type="button" id="btn-add-addon-row" class="px-3.5 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold shadow-sm transition">
+              + Add Dhol / Musician / Add-On
+            </button>
+            <button type="button" id="btn-export-addons-csv" class="px-3.5 py-2 rounded-xl bg-cream hover:bg-champagne text-gray-800 text-xs font-semibold border border-champagne transition">
+              Export Add-Ons CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                <th class="py-3 px-2.5">Add-On / Artist Type</th>
+                <th class="py-3 px-2.5">Function &amp; Venue</th>
+                <th class="py-3 px-2.5">Artist / Vendor &amp; Phone</th>
+                <th class="py-3 px-2.5">Timing / Entry Cue</th>
+                <th class="py-3 px-2.5 text-right">Cost (₹)</th>
+                <th class="py-3 px-2.5">Booking Status</th>
+                <th class="py-3 px-2.5">Coordinator</th>
+                <th class="py-3 px-1"></th>
+              </tr>
+            </thead>
+            <tbody id="addons-table-body" class="divide-y divide-cream"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION 2: MISCELLANEOUS DUTIES, ERRANDS & ON-GROUND THINGS -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cream pb-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sage-700">Part 2 • Crucial Small Things &amp; On-Ground Errands</span>
+            <h2 class="serif-heading text-2xl sm:text-3xl font-bold text-sage-800">📋 Miscellaneous Duties, Errands &amp; Things Tracker</h2>
+            <p class="text-xs sm:text-sm text-gray-600">
+              Track all the miscellaneous essentials that often get overlooked—shagun envelopes &amp; cash change notes for tips, garment steaming, room welcome baskets at Mandapam, 5:30 AM breakfast runs, gift bag custody at CPI, extension boards/chargers, and post-event prop returns.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+            <button type="button" id="btn-add-misc-row" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition">
+              + Add Misc Duty / Item
+            </button>
+            <button type="button" id="btn-export-misc-csv" class="px-3.5 py-2 rounded-xl bg-cream hover:bg-champagne text-gray-800 text-xs font-semibold border border-champagne transition">
+              Export Misc Duties CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                <th class="py-3 px-2 text-center">Done?</th>
+                <th class="py-3 px-2.5">Miscellaneous Duty / Item Description</th>
+                <th class="py-3 px-2.5">Venue / Timing</th>
+                <th class="py-3 px-2.5">Assigned Person</th>
+                <th class="py-3 px-2.5">Backup / Phone</th>
+                <th class="py-3 px-2.5">Notes / Checklist Detail</th>
+                <th class="py-3 px-1"></th>
+              </tr>
+            </thead>
+            <tbody id="misc-table-body" class="divide-y divide-cream"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 6: MANDAPAM EVENTS, SANGEET GAMES, SCHEDULES & BACKUP ==================== -->
+    <section id="tab-panel-schedules" class="tab-panel hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cream pb-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-800">Section 5 • Mandapam Marriage Resort, CNI Church &amp; CPI Reception</span>
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">Editable Functions &amp; Venue Schedule</h3>
+            <p class="text-xs text-gray-500">Engagement, Mehendi, Haldi, Sangeet Night (with Games), and Guest Stay at <strong>Mandapam Marriage Resort</strong>; Reception at <strong>Hotel Central Point International (CPI)</strong>.</p>
+          </div>
+          <button type="button" id="btn-add-event-card" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold shadow-sm transition self-start sm:self-auto">
+            + Add Function / Event
+          </button>
+        </div>
+        <div id="events-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </div>
+
+      <!-- Editable Sangeet Night & Pre-Wedding Games Planner -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-cream pb-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-800">Mandapam Marriage Resort &amp; CPI Reception • Interactive Entertainment</span>
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">Sangeet Night, Mehendi, Haldi &amp; Reception Games Lineup (Editable)</h3>
+            <p class="text-xs text-gray-500">Edit any game, duration, rules, or props owner below.</p>
+          </div>
+          <button type="button" id="btn-add-game-row" class="px-3.5 py-2 rounded-xl bg-amber-700 hover:bg-amber-800 text-white text-xs font-semibold shadow-sm transition self-start sm:self-auto">
+            + Add Game / Activity
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                <th class="py-2.5 px-3">Game / Activity Name</th>
+                <th class="py-2.5 px-3">Function &amp; Venue</th>
+                <th class="py-2.5 px-3">Duration</th>
+                <th class="py-2.5 px-3">How It Works / Rules</th>
+                <th class="py-2.5 px-3">Props &amp; Host / MC</th>
+                <th class="py-2.5 px-2"></th>
+              </tr>
+            </thead>
+            <tbody id="games-table-body" class="divide-y divide-cream"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Editable Morning & Reception Schedules -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <h3 class="serif-heading text-2xl font-bold text-sage-800">Section 21 • SAMPLE Wedding Morning Schedule (Mandapam → CNI Church)</h3>
+              <p class="text-xs text-gray-500">All times, tasks, and owners are editable inline.</p>
+            </div>
+            <button type="button" id="btn-add-morning-row" class="px-3 py-1.5 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold whitespace-nowrap">+ Row</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                  <th class="py-2.5 px-2">Time</th>
+                  <th class="py-2.5 px-2">Milestone / Task</th>
+                  <th class="py-2.5 px-2">Owner</th>
+                  <th class="py-2.5 px-1"></th>
+                </tr>
+              </thead>
+              <tbody id="morning-schedule-body" class="divide-y divide-cream"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <h3 class="serif-heading text-2xl font-bold text-sage-800">Section 13 • CPI Reception Programme &amp; Run-of-Show</h3>
+              <p class="text-xs text-gray-500">Hotel Central Point International (CPI), Raipur Road. All cells editable.</p>
+            </div>
+            <button type="button" id="btn-add-reception-row" class="px-3 py-1.5 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold whitespace-nowrap">+ Row</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                  <th class="py-2.5 px-2">Relative Time</th>
+                  <th class="py-2.5 px-2">Programme Item</th>
+                  <th class="py-2.5 px-2">Owner / Cue</th>
+                  <th class="py-2.5 px-1"></th>
+                </tr>
+              </thead>
+              <tbody id="reception-schedule-body" class="divide-y divide-cream"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editable Backup Plan Matrix -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">Section 22 • Editable Emergency &amp; Backup Plan Matrix</h3>
+            <p class="text-xs text-gray-500">Every risk scenario, prevention step, backup action, and owner is editable.</p>
+          </div>
+          <button type="button" id="btn-add-backup-row" class="px-3.5 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold self-start sm:self-auto">
+            + Add Backup Rule
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-cream text-sage-800 uppercase text-xs font-semibold border-b border-champagne">
+                <th class="py-2.5 px-2.5">Risk Scenario</th>
+                <th class="py-2.5 px-2.5">Prevention</th>
+                <th class="py-2.5 px-2.5">Backup Action</th>
+                <th class="py-2.5 px-2.5">Owner</th>
+                <th class="py-2.5 px-1"></th>
+              </tr>
+            </thead>
+            <tbody id="backup-matrix-body" class="divide-y divide-cream text-gray-700"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 7: GOOGLE WORKSPACE HUB (MAPS, CALENDAR, INTAKE FORMS & LIVE SHEET) ==================== -->
+    <section id="tab-panel-workspace" class="tab-panel hidden space-y-8">
+
+      <!-- 1. Quick Family & Guest Intake Form + Connected Google Calendar -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+          <div class="flex items-center justify-between border-b border-cream pb-3">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-emerald-800">Family contributions • परिवार की जानकारी</span>
+              <h2 class="serif-heading text-2xl font-bold text-sage-800">📝 Wedding Information Intake Form</h2>
+              <p class="text-xs text-gray-500">Family members can submit a new Guest Invite, Dhol/Add-On, Misc Duty, Close Family RSVP, Task Update, or Vendor Quote right here—it saves locally first, then to Google when connected. Check the save indicator.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="intake-type" class="block text-xs font-semibold uppercase text-gray-600 mb-1">What are you adding?</label>
+              <select id="intake-type" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm font-semibold text-sage-800">
+                <option value="INVITE_BRIDE">👰 Add to Bride's Invite List</option>
+                <option value="INVITE_GROOM">🤵 Add to Groom's Invite List</option>
+                <option value="INVITE_COMMON">🤝 Add to Common Guests (Send Only 1)</option>
+                <option value="ADDON_ITEM">🥁 Add Dhol / Musician / Special Add-On</option>
+                <option value="MISC_DUTY">📋 Add Miscellaneous Duty / Errand</option>
+                <option value="CLOSE_RSVP">🏨 Close Family RSVP &amp; Mandapam Stay</option>
+                <option value="VENDOR_BUDGET">₹ Add Vendor Quote / Budget Entry</option>
+                <option value="NEW_TASK">✅ Add Checklist Task</option>
+              </select>
+            </div>
+            <div>
+              <label for="intake-submitted-by" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Submitted By (Your Name)</label>
+              <input id="intake-submitted-by" type="text" placeholder="e.g., Uncle / Coordinator Name" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="intake-title" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Guest Name / Add-On / Duty / Task</label>
+              <input id="intake-title" type="text" placeholder="Enter Guest Name, Dhol/Musician, Misc Duty, or Task..." class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm" />
+            </div>
+            <div>
+              <label for="intake-qty" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Pax Count / Cost (₹)</label>
+              <input id="intake-qty" type="number" min="0" step="0.01" value="0" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm" />
+            </div>
+            <div>
+              <label for="intake-phone" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Phone / Venue / Timing Note</label>
+              <input id="intake-phone" type="text" placeholder="Phone number, venue, or note..." class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-xs sm:text-sm" />
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+            <button type="button" id="btn-submit-intake" class="px-5 py-2.5 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs sm:text-sm font-semibold shadow-sm transition">
+              Add to wedding plan
+            </button>
+            <span id="intake-log-count" class="text-xs text-gray-500">0 intake submissions logged in this session</span>
+          </div>
+
+          <!-- Recent Intake Log -->
+          <div id="intake-recent-list" class="space-y-1.5 pt-2"></div>
+        </div>
+
+        <!-- Right: Connected Google Calendar -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+          <div class="border-b border-cream pb-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-sage-700">Wedding Calendar • Asia/Kolkata</span>
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">📅 Wedding Calendar &amp; Dated Events</h3>
+            <p class="text-xs text-gray-500">Set exact start and end times in Schedules. Publish selected events to the dedicated wedding calendar using the button below.</p>
+          </div>
+
+<div id="calendar-links"></div><button id="publish-calendar" type="button" class="planner-button">Update shared wedding calendar</button><p id="calendar-status" role="status">Google setup required. Personal calendars are not embedded.</p>
+        </div>
+      </div>
+
+      <!-- 2. Interactive Google Maps for All 3 Bilaspur Venues -->
+      <div class="bg-white rounded-2xl border border-champagne shadow-sm p-5 sm:p-6 space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-cream pb-3">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-sage-700">Interactive Google Maps • Bilaspur Venues</span>
+            <h3 class="serif-heading text-2xl font-bold text-sage-800">🗺️ Venue Locations &amp; Directions (Mandapam Resort • CNI Church • Hotel CPI)</h3>
+            <p class="text-xs text-gray-500">These are venue-name searches, not verified entrance pins. Confirm the correct property and entrance with each manager before sending directions to guests.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div class="rounded-xl border border-amber-200 overflow-hidden bg-ivory flex flex-col">
+            <div class="p-3 bg-amber-50 border-b border-amber-200 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-amber-950">1. Mandapam Marriage Resort</div>
+                <div class="text-[11px] text-amber-800">Stay, Engagement, Mehendi, Haldi &amp; Sangeet (Tifra)</div>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=Mandapam+Marriage+Resort+Tifra+Bilaspur+Chhattisgarh" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-white text-amber-900 text-xs font-semibold border border-amber-200">Maps ↗</a>
+            </div>
+            <div class="h-52 w-full">
+              <iframe
+                title="Mandapam Marriage Resort Bilaspur Map"
+                src="https://www.google.com/maps?q=Mandapam+Marriage+Resort+Tifra+Bilaspur+Chhattisgarh&output=embed"
+                class="w-full h-full border-0"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-sage-200 overflow-hidden bg-ivory flex flex-col">
+            <div class="p-3 bg-sage-50 border-b border-sage-200 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-sage-900">2. CNI Church Civil Lines</div>
+                <div class="text-[11px] text-sage-700">Beside Civil Lines Thana, Bilaspur (Church Service)</div>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=CNI+Church+Civil+Lines+Bilaspur+Chhattisgarh" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-white text-sage-900 text-xs font-semibold border border-sage-200">Maps ↗</a>
+            </div>
+            <div class="h-52 w-full">
+              <iframe
+                title="CNI Church Civil Lines Bilaspur Map"
+                src="https://www.google.com/maps?q=CNI+Church+Civil+Lines+Bilaspur+Chhattisgarh&output=embed"
+                class="w-full h-full border-0"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-emerald-200 overflow-hidden bg-ivory flex flex-col">
+            <div class="p-3 bg-emerald-50 border-b border-emerald-200 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold text-emerald-950">3. Hotel Central Point International (CPI)</div>
+                <div class="text-[11px] text-emerald-800">Opp. New High Court, Raipur Rd (Grand Reception)</div>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Central+Point+International+Raipur+Road+Bilaspur+Chhattisgarh" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-white text-emerald-900 text-xs font-semibold border border-emerald-200">Maps ↗</a>
+            </div>
+            <div class="h-52 w-full">
+              <iframe
+                title="Hotel Central Point International CPI Bilaspur Map"
+                src="https://www.google.com/maps?q=Hotel+Central+Point+International+Raipur+Road+Bilaspur+Chhattisgarh&output=embed"
+                class="w-full h-full border-0"
+                loading="lazy">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<div class="planner-card"><h3>Google storage &amp; backups</h3><p>The private Sheet holds the shared plan; Drive holds receipts and snapshots. The wedding calendar is separate from your personal calendar.</p><div id="storage-links"></div><button id="cloud-backup" type="button" class="planner-button">Save snapshot to Google Drive</button><p>Guest contacts, room numbers and budgets are available to anyone holding your family edit link. Share it privately.</p><a href="SETUP.html" target="_blank" rel="noopener">Owner setup instructions</a></div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL: ADD CUSTOM TASK ==================== -->
+  <div id="modal-add-task" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-champagne max-w-lg w-full p-6 shadow-xl space-y-4">
+      <div class="flex items-center justify-between border-b border-cream pb-3">
+        <h3 class="serif-heading text-2xl font-bold text-sage-800">Add Custom Wedding Checklist Task</h3>
+        <button type="button" id="btn-close-add-task" class="text-gray-400 hover:text-gray-700 text-lg font-bold">✕</button>
+      </div>
+      <div class="space-y-3">
+        <div>
+          <label for="new-task-text" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Task Description</label>
+          <input id="new-task-text" type="text" placeholder="e.g., Confirm Sangeet stage LED backdrop & props at Mandapam Marriage Resort" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="new-task-section" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Section</label>
+            <select id="new-task-section" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm"></select>
+          </div>
+          <div>
+            <label for="new-task-owner" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Assigned Role</label>
+            <select id="new-task-owner" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm"></select>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="new-task-sub" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Sub-Category / Timing</label>
+            <input id="new-task-sub" type="text" value="Custom Family Task" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label for="new-task-priority" class="block text-xs font-semibold uppercase text-gray-600 mb-1">Priority</label>
+            <select id="new-task-priority" class="w-full rounded-xl border border-champagne bg-ivory px-3 py-2 text-sm">
+              <option value="Normal">Normal</option>
+              <option value="High">High Priority</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end gap-2 pt-3 border-t border-cream">
+        <button type="button" id="btn-cancel-add-task" class="px-4 py-2 rounded-xl bg-cream text-gray-700 text-xs font-semibold">Cancel</button>
+        <button type="button" id="btn-save-add-task" class="px-4 py-2 rounded-xl bg-sage-600 hover:bg-sage-700 text-white text-xs font-semibold">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Connection dialog is supplied by cloud.js. -->
+  <footer class="bg-cream border-t border-champagne py-5 mt-12 text-center text-xs text-gray-600">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span><strong>Christian Wedding Master Plan &amp; Collaboration Hub</strong> • Mandapam Marriage Resort (Tifra) • CNI Church Civil Lines • Hotel Central Point International (CPI), Bilaspur</span>
+      <span>Private family collaboration • Check the save indicator</span>
+    </div>
+  </footer>
+
+<script src="core.js"></script>
+<script src="app.js"></script>
+<script src="planner.js"></script>
+<script src="cloud.js"></script>
+</body>
+</html>
