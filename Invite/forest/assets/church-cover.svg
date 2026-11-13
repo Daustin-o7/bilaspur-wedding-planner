@@ -1,0 +1,242 @@
+<svg viewBox="0 0 430 835" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C8BFB0"></stop>
+                  <stop offset="28%" stop-color="#DFD7C8"></stop>
+                  <stop offset="55%" stop-color="#F4EFE6"></stop>
+                  <stop offset="100%" stop-color="#D5CBBF"></stop>
+                </linearGradient>
+                <linearGradient id="stoneLight" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#E5DACB"></stop>
+                  <stop offset="50%" stop-color="#F5EFE6"></stop>
+                  <stop offset="100%" stop-color="#CBBBA6"></stop>
+                </linearGradient>
+                <linearGradient id="stoneShadow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#B8A690"></stop>
+                  <stop offset="100%" stop-color="#DFD3C3"></stop>
+                </linearGradient>
+                <linearGradient id="domeGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#D7C8B6"></stop>
+                  <stop offset="45%" stop-color="#BFB09E"></stop>
+                  <stop offset="100%" stop-color="#9A8B7A"></stop>
+                </linearGradient>
+                <linearGradient id="aisleGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#F9F6F0"></stop>
+                  <stop offset="100%" stop-color="#E2DDD5"></stop>
+                </linearGradient>
+                <linearGradient id="gownGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFFDF9"></stop>
+                  <stop offset="60%" stop-color="#F2ECE1"></stop>
+                  <stop offset="100%" stop-color="#DFD5C6"></stop>
+                </linearGradient>
+                <linearGradient id="suitGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2D3748"></stop>
+                  <stop offset="50%" stop-color="#1E2533"></stop>
+                  <stop offset="100%" stop-color="#131822"></stop>
+                </linearGradient>
+                <radialGradient id="sunGlow" cx="50%" cy="38%" r="48%">
+                  <stop offset="0%" stop-color="#FFFDF9" stop-opacity="0.88"></stop>
+                  <stop offset="100%" stop-color="#FFFDF9" stop-opacity="0"></stop>
+                </radialGradient>
+              </defs>
+
+              <!-- Sky & Sunburst -->
+              <rect width="430" height="835" fill="url(#heroSky)"></rect>
+              <circle cx="215" cy="315" r="235" fill="url(#sunGlow)"></circle>
+
+              <!-- Distant Serene Hills -->
+              <path d="M0 445 Q45 415 90 435 T170 450 L170 525 L0 525 Z" fill="#9E9689" opacity="0.58"></path>
+              <path d="M0 470 Q60 445 120 475 L120 535 L0 535 Z" fill="#837A6E" opacity="0.68"></path>
+              <path d="M275 460 Q345 435 430 455 L430 530 L275 530 Z" fill="#ACA498" opacity="0.5"></path>
+              <rect x="0" y="490" width="430" height="65" fill="#D8D5CE" opacity="0.65"></rect>
+
+              <!-- Classical Stone Balustrade -->
+              <g stroke="#9E8F7E" stroke-width="0.8" fill="#E5DDD2">
+                <rect x="0" y="520" width="122" height="6"></rect>
+                <rect x="308" y="520" width="122" height="6"></rect>
+                <rect x="0" y="546" width="122" height="8"></rect>
+                <rect x="308" y="546" width="122" height="8"></rect>
+                <path d="M15 526 L15 546 M32 526 L32 546 M49 526 L49 546 M66 526 L66 546 M83 526 L83 546 M100 526 L100 546" stroke-width="3.5" stroke="#D2C7B8"></path>
+                <path d="M326 526 L326 546 M343 526 L343 546 M360 526 L360 546 M377 526 L377 546 M394 526 L394 546 M411 526 L411 546" stroke-width="3.5" stroke="#D2C7B8"></path>
+              </g>
+
+              <!-- CLASSICAL CATHEDRAL PAVILION WITH SACRED CROSS FINIAL -->
+              <g id="classical-pavilion" transform="translate(5, 0)">
+                <g fill="#856A3F" stroke="#5E4C3A" stroke-width="0.9">
+                  <path d="M205 114 L215 114 L217 126 L203 126 Z"></path>
+                  <rect x="208.5" y="86" width="3" height="28" rx="1"></rect>
+                  <rect x="200" y="94" width="20" height="3" rx="1"></rect>
+                </g>
+
+                <path d="M122 208 C122 145, 165 124, 210 124 C255 124, 298 145, 298 208 Z" fill="url(#domeGrad)" stroke="#7D6E5D" stroke-width="1"></path>
+                <path d="M210 124 L210 208 M190 126 Q170 160 162 208 M230 126 Q250 160 258 208 M170 134 Q142 168 136 208 M250 134 Q278 168 284 208" fill="none" stroke="#6E5F4F" stroke-width="0.8" opacity="0.65"></path>
+
+                <ellipse cx="210" cy="212" rx="96" ry="12" fill="#D5C7B6" stroke="#7D6E5D" stroke-width="1"></ellipse>
+                <path d="M108 212 L108 244 C108 254, 312 254, 312 244 L312 212 C312 222, 108 222, 108 212 Z" fill="url(#stoneLight)" stroke="#7D6E5D" stroke-width="1"></path>
+                <path d="M120 228 Q140 238 160 228 Q185 240 210 228 Q235 240 260 228 Q280 238 300 228" fill="none" stroke="#8C7B68" stroke-width="1"></path>
+                <ellipse cx="210" cy="250" rx="88" ry="16" fill="#9A8976" stroke="#6E5F4F" stroke-width="0.9"></ellipse>
+
+                <!-- Columns -->
+                <rect x="156" y="255" width="16" height="218" fill="url(#stoneShadow)" stroke="#7D6E5D" stroke-width="0.7"></rect>
+                <rect x="248" y="255" width="16" height="218" fill="url(#stoneShadow)" stroke="#7D6E5D" stroke-width="0.7"></rect>
+                <rect x="122" y="248" width="20" height="235" fill="url(#stoneLight)" stroke="#7D6E5D" stroke-width="0.9"></rect>
+                <rect x="166" y="252" width="21" height="232" fill="url(#stoneLight)" stroke="#7D6E5D" stroke-width="0.9"></rect>
+                <rect x="234" y="252" width="21" height="232" fill="url(#stoneLight)" stroke="#7D6E5D" stroke-width="0.9"></rect>
+                <rect x="278" y="248" width="20" height="235" fill="url(#stoneLight)" stroke="#7D6E5D" stroke-width="0.9"></rect>
+
+                <!-- Botanical Blush, Burgundy & Ivory Rose Floral Arch Garlands -->
+                <g stroke="#5D6B4E" stroke-width="0.8">
+                  <path d="M118 258 Q145 280 124 315 Q145 345 122 380" fill="none" stroke="#536846" stroke-width="3.5"></path>
+                  <path d="M302 258 Q275 280 296 315 Q275 345 298 380" fill="none" stroke="#536846" stroke-width="3.5"></path>
+                  <circle cx="132" cy="272" r="6" fill="#FAF8F5"></circle>
+                  <circle cx="124" cy="288" r="5" fill="#E8C2B8"></circle>
+                  <circle cx="130" cy="304" r="5.5" fill="#7C2832"></circle>
+                  <circle cx="134" cy="322" r="5.5" fill="#FAF8F5"></circle>
+                  <circle cx="288" cy="272" r="6" fill="#FAF8F5"></circle>
+                  <circle cx="296" cy="288" r="5" fill="#E8C2B8"></circle>
+                  <circle cx="290" cy="304" r="5.5" fill="#7C2832"></circle>
+                  <circle cx="286" cy="322" r="5.5" fill="#FAF8F5"></circle>
+                </g>
+
+                <!-- Stone Steps -->
+                <path d="M104 485 L316 485 L326 498 L94 498 Z" fill="#E3D9CA" stroke="#8C7B68" stroke-width="0.8"></path>
+                <path d="M90 498 L330 498 L342 512 L78 512 Z" fill="#D9CEBE" stroke="#8C7B68" stroke-width="0.8"></path>
+                <path d="M74 512 L346 512 L358 526 L62 526 Z" fill="#CFC2B0" stroke="#8C7B68" stroke-width="0.8"></path>
+              </g>
+
+              <!-- Altar Unity Candle & White Rose Arrangement -->
+              <g id="altar-flowers" transform="translate(5, 0)">
+                <rect x="194" y="435" width="32" height="46" fill="#E5DDD2" stroke="#8C7B68" stroke-width="0.7"></rect>
+                <circle cx="210" cy="412" r="24" fill="#6D7661" opacity="0.8"></circle>
+                <circle cx="204" cy="405" r="5" fill="#FAF8F5"></circle>
+                <circle cx="216" cy="402" r="6" fill="#FAF8F5"></circle>
+                <circle cx="210" cy="415" r="5.5" fill="#F4EFE6"></circle>
+                <rect x="207" y="382" width="6" height="18" fill="#FFFDF9"></rect>
+                <circle cx="210" cy="378" r="4" fill="#FFE38E" opacity="0.9"></circle>
+              </g>
+
+              <!-- White Carpet Runner & Stone Terrace Floor -->
+              <rect x="0" y="526" width="430" height="309" fill="#BFB8AC"></rect>
+              <polygon points="159,526 271,526 368,835 62,835" fill="url(#aisleGrad)" stroke="#ABA193" stroke-width="1"></polygon>
+
+              <!-- Ceremony Chairs Left & Right -->
+              <g stroke="#5E4934" stroke-width="1.2" fill="#9C8368">
+                <g transform="translate(10, 595)">
+                  <rect x="0" y="0" width="46" height="62" fill="none" stroke-width="2"></rect>
+                  <line x1="0" y1="15" x2="46" y2="15"></line><line x1="0" y1="30" x2="46" y2="30"></line>
+                  <polygon points="0,62 46,62 58,74 12,74" fill="#E6DEC8" stroke="#6E5842" stroke-width="1"></polygon>
+                  <line x1="2" y1="62" x2="2" y2="122" stroke-width="2.2"></line><line x1="56" y1="74" x2="56" y2="130" stroke-width="2.2"></line>
+                </g>
+                <g transform="translate(364, 595) scale(-1, 1) translate(-46, 0)">
+                  <rect x="0" y="0" width="46" height="62" fill="none" stroke-width="2"></rect>
+                  <line x1="0" y1="15" x2="46" y2="15"></line><line x1="0" y1="30" x2="46" y2="30"></line>
+                  <polygon points="0,62 46,62 58,74 12,74" fill="#E6DEC8" stroke="#6E5842" stroke-width="1"></polygon>
+                  <line x1="2" y1="62" x2="2" y2="122" stroke-width="2.2"></line><line x1="56" y1="74" x2="56" y2="130" stroke-width="2.2"></line>
+                </g>
+              </g>
+
+              <!-- ========================================================= -->
+              <!-- ANURAGH KASHYAP & KAMISHI SHUTUL AUSTIN PORTRAIT          -->
+              <!-- ========================================================= -->
+              <g class="animate-couple" transform="translate(5, 0)">
+                <ellipse cx="210" cy="748" rx="85" ry="15" fill="#8C8275" opacity="0.45"></ellipse>
+
+                <!-- GROOM: ANURAGH KASHYAP (Clean bald/shaved head, rectangular glasses, warm smile with moustache & goatee beard, bespoke dark navy/black suit) -->
+                <g id="anuragh-groom-figure">
+                  <path d="M150 610 L154 726 L172 726 L176 620 Z" fill="#1E2533"></path>
+                  <path d="M177 620 L182 722 L199 722 L201 610 Z" fill="#171D28"></path>
+                  <ellipse cx="162" cy="730" rx="10" ry="5" fill="#4A2E1B"></ellipse>
+                  <ellipse cx="191" cy="726" rx="10" ry="5" fill="#4A2E1B"></ellipse>
+
+                  <!-- Bespoke Navy/Charcoal Suit Jacket -->
+                  <path d="M138 502 C154 492, 198 492, 212 504 L218 585 L204 616 L146 616 L134 565 Z" fill="url(#suitGrad)" stroke="#131822" stroke-width="0.9"></path>
+                  <polygon points="164,496 188,496 176,544" fill="#FAF8F5"></polygon>
+                  <polygon points="173,502 179,502 181,538 176,545 171,538" fill="#1E2533"></polygon>
+                  <path d="M162 496 L152 532 L175 546 M190 496 L200 532 L177 546" fill="none" stroke="#141619" stroke-width="1.4"></path>
+                  <!-- White Rose Boutonniere -->
+                  <circle cx="158" cy="520" r="4.5" fill="#FFFDF9" stroke="#536846" stroke-width="0.9"></circle>
+                  <polygon points="188,526 198,526 195,519" fill="#FAF8F5"></polygon>
+
+                  <!-- Neck & Bald Head with Natural Crown Highlight -->
+                  <rect x="167" y="484" width="18" height="14" rx="4" fill="#B67E57"></rect>
+                  <ellipse cx="176" cy="465" rx="17.5" ry="21" fill="#C48A62"></ellipse>
+                  <ellipse cx="173" cy="451" rx="9" ry="5" fill="#D8A37D" opacity="0.65"></ellipse>
+                  <ellipse cx="158" cy="467" rx="3" ry="5.5" fill="#B67E57"></ellipse>
+                  <ellipse cx="194" cy="467" rx="3" ry="5.5" fill="#B67E57"></ellipse>
+
+                  <!-- Eyebrows, Warm Eyes & Rectangular Eyeglasses -->
+                  <path d="M164 459 Q169 457 173 459 M179 459 Q184 457 188 459" fill="none" stroke="#2B1E16" stroke-width="1.4" stroke-linecap="round"></path>
+                  <circle cx="169" cy="464" r="1.6" fill="#23170F"></circle>
+                  <circle cx="183" cy="464" r="1.6" fill="#23170F"></circle>
+                  <rect x="162" y="460" width="12.5" height="8" rx="2" fill="#DCE6F2" fill-opacity="0.22" stroke="#2A2421" stroke-width="1.2"></rect>
+                  <rect x="177.5" y="460" width="12.5" height="8" rx="2" fill="#DCE6F2" fill-opacity="0.22" stroke="#2A2421" stroke-width="1.2"></rect>
+                  <line x1="174.5" y1="463" x2="177.5" y2="463" stroke="#2A2421" stroke-width="1.2"></line>
+
+                  <!-- Nose, Moustache, Warm Smile & Goatee Beard -->
+                  <path d="M176 463 L175 471 L178 472" fill="none" stroke="#8F5D3B" stroke-width="1"></path>
+                  <path d="M166 476 Q176 472 186 476 Q181 479 176 477 Q171 479 166 476 Z" fill="#241B15"></path>
+                  <path d="M170 478 Q176 482 182 478" fill="none" stroke="#FFFDF9" stroke-width="1.4"></path>
+                  <path d="M163 477 C165 486, 171 490, 176 490 C181 490, 187 486, 189 477 C187 483, 182 485, 176 485 C170 485, 165 483, 163 477 Z" fill="#241B15"></path>
+                </g>
+
+                <!-- BRIDE: KAMISHI SHUTUL AUSTIN (Dark wavy hair updo, glasses, drop earrings, white lace Christian bridal gown & embroidered cathedral veil) -->
+                <g id="kamishi-bride-figure">
+                  <g class="animate-veil">
+                    <path d="M234 472 C265 525, 302 635, 326 738 C288 756, 204 756, 174 738 C192 645, 212 535, 224 472 Z" fill="#FFFFFF" fill-opacity="0.54" stroke="#F9F6F0" stroke-width="1.2"></path>
+                    <path d="M174 738 Q210 754 250 748 Q290 754 326 738" fill="none" stroke="#FFFDF9" stroke-width="2.4" stroke-dasharray="3 2"></path>
+                  </g>
+
+                  <!-- Dark wavy hair: a full updo with volume above the head -->
+                  <path d="M206 502 C196 478 198 452 214 441 C226 433 242 433 253 443 C267 456 269 482 261 506 C255 524 246 534 238 538 C230 528 224 514 221 500 C216 504 210 506 206 502 Z" fill="#231B16"></path>
+
+                  <!-- Ivory-White Lace Christian Wedding Gown -->
+                  <path d="M212 562 C194 618, 178 685, 166 738 C198 752, 235 756, 268 752 C292 748, 308 742, 316 734 C292 678, 268 615, 252 562 Z" fill="url(#gownGrad)" stroke="#D8CEBE" stroke-width="0.9"></path>
+                  <path d="M210 516 C220 508, 246 508, 254 516 L252 564 L212 564 Z" fill="#FAF8F5" stroke="#D8CEBE" stroke-width="0.8"></path>
+                  <path d="M220 564 Q208 650 192 744 M232 564 Q234 650 238 748 M244 564 Q264 650 286 742" fill="none" stroke="#D5C8B4" stroke-width="1"></path>
+                  <circle cx="224" cy="535" r="2" fill="#E5DAC8"></circle><circle cx="238" cy="542" r="2" fill="#E5DAC8"></circle><circle cx="230" cy="552" r="2" fill="#E5DAC8"></circle>
+
+                  <!-- Neck & Gold Pendant Necklace -->
+                  <rect x="225" y="498" width="14" height="14" rx="3" fill="#CA9268"></rect>
+                  <path d="M224 508 Q232 516 240 508" fill="none" stroke="#C5A059" stroke-width="1"></path>
+
+                  <!-- Head & Hairline: visible forehead, centre parting and face-framing waves -->
+                  <ellipse cx="232" cy="480" rx="15.5" ry="18.5" fill="#D19A72"></ellipse>
+                  <path d="M215 476 C213 452 223 441 232 441 C241 441 251 452 249 476 C246 462 240 457 232 457 C224 457 218 462 215 476 Z" fill="#231B16"></path>
+                  <path d="M216 476 C212.5 486 214 495 218 502 M248 476 C251.5 486 250 495 246 502" fill="none" stroke="#231B16" stroke-width="3.2" stroke-linecap="round"></path>
+                  <circle cx="220" cy="450" r="2.2" fill="#FFFDF9"></circle>
+                  <circle cx="231" cy="445" r="2.5" fill="#FFFDF9"></circle>
+                  <circle cx="243" cy="450" r="2.2" fill="#FFFDF9"></circle>
+
+                  <!-- Pearl / Gold Drop Earrings -->
+                  <line x1="215" y1="485" x2="215" y2="495" stroke="#D4AF37" stroke-width="1.2"></line>
+                  <circle cx="215" cy="496" r="1.8" fill="#FFFDF9"></circle>
+                  <line x1="249" y1="485" x2="249" y2="495" stroke="#D4AF37" stroke-width="1.2"></line>
+                  <circle cx="249" cy="496" r="1.8" fill="#FFFDF9"></circle>
+
+                  <!-- Eyebrows, Eyes & Signature Round/Oval Eyeglasses -->
+                  <path d="M221 474 Q226 472 229 474 M235 474 Q239 472 243 474" fill="none" stroke="#2A1D15" stroke-width="1.2"></path>
+                  <circle cx="225.5" cy="479" r="1.6" fill="#23170F"></circle>
+                  <circle cx="238.5" cy="479" r="1.6" fill="#23170F"></circle>
+                  <circle cx="225.5" cy="479" r="5.6" fill="#FFF" fill-opacity="0.15" stroke="#4A3C31" stroke-width="1.1"></circle>
+                  <circle cx="238.5" cy="479" r="5.6" fill="#FFF" fill-opacity="0.15" stroke="#4A3C31" stroke-width="1.1"></circle>
+                  <line x1="231.1" y1="479" x2="232.9" y2="479" stroke="#4A3C31" stroke-width="1.1"></line>
+
+                  <!-- Nose & Warm Radiant Smile -->
+                  <path d="M232 479 L231.5 485 L233.5 486" fill="none" stroke="#9E6A47" stroke-width="0.9"></path>
+                  <path d="M226.5 490 Q232 494.5 237.5 490" fill="none" stroke="#A44A3F" stroke-width="1.4" stroke-linecap="round"></path>
+
+                  <!-- Arms & White Rose Bridal Bouquet -->
+                  <path d="M210 520 Q200 545 215 558" fill="none" stroke="#D19A72" stroke-width="5.5" stroke-linecap="round"></path>
+                  <path d="M252 520 Q258 548 238 560" fill="none" stroke="#D19A72" stroke-width="5.5" stroke-linecap="round"></path>
+                  <g transform="translate(228, 565)">
+                    <circle cx="0" cy="0" r="16" fill="#5D7052"></circle>
+                    <circle cx="-6" cy="-4" r="5.5" fill="#FFFDF9"></circle>
+                    <circle cx="6" cy="-3" r="6" fill="#F9F6F0"></circle>
+                    <circle cx="0" cy="5" r="6" fill="#FFFDF9"></circle>
+                    <circle cx="-9" cy="4" r="4.5" fill="#F4EFE6"></circle>
+                    <circle cx="9" cy="5" r="4.5" fill="#FFFDF9"></circle>
+                    <path d="M-3 14 L-6 28 M3 14 L6 28" stroke="#536846" stroke-width="2.5"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>

@@ -1,0 +1,379 @@
+{
+  "project": "Kamishi & Anuragh Wedding Invitation Asset Pack",
+  "version": "2.0-refined",
+  "themes": {
+    "forest": {
+      "palette": {
+        "primary": "#155640",
+        "secondary": "#799780",
+        "gold": "#B18A45",
+        "paper": "#F5F0E4",
+        "ink": "#173D31",
+        "muted": "#D9E1D0"
+      },
+      "assets": [
+        {
+          "path": "forest/assets/church-cover.png",
+          "bytes": 120624,
+          "width": 1200,
+          "height": 1500,
+          "format": "PNG",
+          "transparent_pixels": 1650394
+        },
+        {
+          "path": "forest/assets/church-cover.svg",
+          "bytes": 1772,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/closing-portrait.jpg",
+          "bytes": 307206,
+          "width": 1200,
+          "height": 1500,
+          "format": "JPEG"
+        },
+        {
+          "path": "forest/assets/gallery-candid.jpg",
+          "bytes": 564973,
+          "width": 1200,
+          "height": 1800,
+          "format": "JPEG"
+        },
+        {
+          "path": "forest/assets/gallery-sepia.jpg",
+          "bytes": 591260,
+          "width": 1200,
+          "height": 1800,
+          "format": "JPEG"
+        },
+        {
+          "path": "forest/assets/gallery-watercolour.jpg",
+          "bytes": 290369,
+          "width": 1200,
+          "height": 1200,
+          "format": "JPEG"
+        },
+        {
+          "path": "forest/assets/hero-portrait.jpg",
+          "bytes": 591473,
+          "width": 1600,
+          "height": 2000,
+          "format": "JPEG"
+        },
+        {
+          "path": "forest/assets/monogram.png",
+          "bytes": 28036,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 238356
+        },
+        {
+          "path": "forest/assets/monogram.svg",
+          "bytes": 533,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/drapery.png",
+          "bytes": 26335,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 241944
+        },
+        {
+          "path": "forest/assets/ornaments/drapery.svg",
+          "bytes": 489,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/flower-urn.png",
+          "bytes": 29459,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 241323
+        },
+        {
+          "path": "forest/assets/ornaments/flower-urn.svg",
+          "bytes": 766,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/locket.png",
+          "bytes": 25393,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 243523
+        },
+        {
+          "path": "forest/assets/ornaments/locket.svg",
+          "bytes": 528,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/ribbon.png",
+          "bytes": 25809,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 244696
+        },
+        {
+          "path": "forest/assets/ornaments/ribbon.svg",
+          "bytes": 554,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/rings.png",
+          "bytes": 28036,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 238356
+        },
+        {
+          "path": "forest/assets/ornaments/rings.svg",
+          "bytes": 533,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/swans.png",
+          "bytes": 19935,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 248222
+        },
+        {
+          "path": "forest/assets/ornaments/swans.svg",
+          "bytes": 635,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/ornaments/toast-tower.png",
+          "bytes": 17211,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 247426
+        },
+        {
+          "path": "forest/assets/ornaments/toast-tower.svg",
+          "bytes": 657,
+          "format": "SVG"
+        },
+        {
+          "path": "forest/assets/story-portrait.jpg",
+          "bytes": 547460,
+          "width": 1200,
+          "height": 1800,
+          "format": "JPEG"
+        },
+        {
+          "path": "forest/assets/toile.png",
+          "bytes": 173313,
+          "width": 768,
+          "height": 768,
+          "format": "PNG",
+          "transparent_pixels": 576992
+        },
+        {
+          "path": "forest/assets/toile.svg",
+          "bytes": 1212,
+          "format": "SVG"
+        }
+      ]
+    },
+    "wine": {
+      "palette": {
+        "primary": "#70283E",
+        "secondary": "#B78378",
+        "gold": "#C6A66A",
+        "paper": "#F6EFE4",
+        "ink": "#4E2030",
+        "muted": "#E8D8CF"
+      },
+      "assets": [
+        {
+          "path": "wine/assets/church-cover.png",
+          "bytes": 121739,
+          "width": 1200,
+          "height": 1500,
+          "format": "PNG",
+          "transparent_pixels": 1650394
+        },
+        {
+          "path": "wine/assets/church-cover.svg",
+          "bytes": 1772,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/closing-portrait.jpg",
+          "bytes": 260339,
+          "width": 1200,
+          "height": 1500,
+          "format": "JPEG"
+        },
+        {
+          "path": "wine/assets/gallery-detail.jpg",
+          "bytes": 207634,
+          "width": 1200,
+          "height": 1200,
+          "format": "JPEG"
+        },
+        {
+          "path": "wine/assets/gallery-line.jpg",
+          "bytes": 297308,
+          "width": 1200,
+          "height": 1800,
+          "format": "JPEG"
+        },
+        {
+          "path": "wine/assets/gallery-noir.jpg",
+          "bytes": 491951,
+          "width": 1200,
+          "height": 1800,
+          "format": "JPEG"
+        },
+        {
+          "path": "wine/assets/hero-portrait.jpg",
+          "bytes": 580763,
+          "width": 1600,
+          "height": 2000,
+          "format": "JPEG"
+        },
+        {
+          "path": "wine/assets/monogram.png",
+          "bytes": 28211,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 238356
+        },
+        {
+          "path": "wine/assets/monogram.svg",
+          "bytes": 533,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/drapery.png",
+          "bytes": 26544,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 241944
+        },
+        {
+          "path": "wine/assets/ornaments/drapery.svg",
+          "bytes": 489,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/flower-urn.png",
+          "bytes": 29412,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 241323
+        },
+        {
+          "path": "wine/assets/ornaments/flower-urn.svg",
+          "bytes": 766,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/locket.png",
+          "bytes": 25571,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 243523
+        },
+        {
+          "path": "wine/assets/ornaments/locket.svg",
+          "bytes": 528,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/ribbon.png",
+          "bytes": 26086,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 244696
+        },
+        {
+          "path": "wine/assets/ornaments/ribbon.svg",
+          "bytes": 554,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/rings.png",
+          "bytes": 28211,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 238356
+        },
+        {
+          "path": "wine/assets/ornaments/rings.svg",
+          "bytes": 533,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/swans.png",
+          "bytes": 20271,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 248222
+        },
+        {
+          "path": "wine/assets/ornaments/swans.svg",
+          "bytes": 635,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/ornaments/toast-tower.png",
+          "bytes": 17191,
+          "width": 512,
+          "height": 512,
+          "format": "PNG",
+          "transparent_pixels": 247426
+        },
+        {
+          "path": "wine/assets/ornaments/toast-tower.svg",
+          "bytes": 657,
+          "format": "SVG"
+        },
+        {
+          "path": "wine/assets/story-portrait.jpg",
+          "bytes": 413735,
+          "width": 1200,
+          "height": 1800,
+          "format": "JPEG"
+        },
+        {
+          "path": "wine/assets/toile.png",
+          "bytes": 177448,
+          "width": 768,
+          "height": 768,
+          "format": "PNG",
+          "transparent_pixels": 576992
+        },
+        {
+          "path": "wine/assets/toile.svg",
+          "bytes": 1212,
+          "format": "SVG"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Image service returned composite boards despite standalone constraints; core photos are individual crops from those boards.",
+    "Gallery alternatives are post-processed derivatives, not independent new scenes.",
+    "Original application source project was not available; this is an asset drop-in package."
+  ]
+}

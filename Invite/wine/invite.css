@@ -1,0 +1,68 @@
+/* Invitation layer: less website, more stationery. Loaded after styles.css and opening.css. */
+:root { --ease: cubic-bezier(.22, .7, .15, 1); --t: 0s; }
+.via-seal { --t: 1.3s; }
+html:has(.wine-page) { background: radial-gradient(ellipse at 50% 0, #8a3a4c, #4a1826 55%, #2b0d16) fixed; }
+@media (min-width: 600px) { .wine-page { margin-block: 28px; outline: 1px solid #d8b98c88; outline-offset: 9px; box-shadow: 0 30px 90px #1d0710aa; } }
+
+/* Remove website chrome, but keep the working controls: the dock, event filters and sound/language. */
+.wine-page :is(.site-header nav, .brand-caption, .chapter-number, footer a, .photo-hint, .scroll-cue, .portrait-label) { display: none !important; }
+.wine-page .site-header { justify-content: center; min-height: 0; padding: 28px 20px 4px; }
+.wine-page .monogram { font: italic 32px var(--serif); }
+.wine-page footer { padding-bottom: 40px; }
+.top-progress { position: fixed; inset: 0 0 auto; height: 2px; z-index: 30; pointer-events: none; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, #b99467, #ecd5a8); }
+.dust { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 14; pointer-events: none; }
+
+/* One formal, centred axis */
+.wine-page :is(.hero-copy, .welcome-section, .section-heading, .story-copy, .rsvp-grid > div:first-child) { text-align: center; }
+.wine-page .hero-meta { align-items: center; border-top: 0; padding-top: 0; }
+.wine-page .hero .button-row { justify-content: center; }
+.wine-page .fine-rule { margin-inline: auto; }
+.wine-page .welcome-section { border-top: 0; }
+
+/* Hero: a photograph in an arched window */
+.wine-page .hero-art { width: min(80%, 340px); aspect-ratio: .8; margin: 22px auto 0; background: none; box-shadow: none; overflow: visible; }
+.wine-page .hero-art::before { content: ''; position: absolute; inset: -11px; border: 1px solid #b99467; border-radius: 999px 999px 6px 6px; opacity: .85; }
+.wine-page .hero-art::after { display: block; inset: 50% 0 0; border-radius: 0 0 4px 4px; background: linear-gradient(transparent, #2b0d16b8); }
+.wine-page .hero-photo { padding: 0; background: none; border-radius: 999px 999px 4px 4px; box-shadow: 0 22px 40px #4a182640; }
+.wine-page .hero-photo img { object-position: 50% 25%; transform: scale(1.08); }
+.wine-page .hero .photo-caption { color: #fff; bottom: 20px; font-size: 19px; text-align: center; }
+.wine-page .hero h1 { margin-bottom: 24px; }
+@supports (animation-timeline: scroll()) {
+  .wine-page .hero-photo img { animation: drift linear both; animation-timeline: scroll(root); animation-range: 0 90vh; }
+}
+@keyframes drift { from { transform: scale(1.08) translateY(0); } to { transform: scale(1.2) translateY(7%); } }
+
+/* Cover: the seal breathes, the envelope floats, then sparks fly when it breaks */
+#invitation-cover:not(.is-opening) .wax-seal { animation: breathe 2.6s ease-in-out infinite; }
+#invitation-cover:not(.is-opening) .opening-object { animation: bob 5s ease-in-out infinite; }
+#invitation-cover:not(.is-opening) .cover-content > :not(.opening-object) { animation: rise 1.1s var(--ease) both; }
+#invitation-cover .cover-content > :nth-child(2) { animation-delay: .15s !important; }
+#invitation-cover .cover-content > :nth-child(3) { animation-delay: .3s !important; }
+#invitation-cover .cover-content > :nth-child(5) { animation-delay: .6s !important; }
+#invitation-cover .cover-content > :nth-child(6) { animation-delay: .75s !important; }
+@keyframes breathe { 50% { scale: 1.07; box-shadow: 1px 4px 8px #47202b55, 0 0 0 9px #a65c6522, 0 0 28px 6px #c98d7e55; } }
+@keyframes bob { 50% { translate: 0 -8px; } }
+.spark { position: fixed; z-index: 9; width: 7px; height: 7px; margin: -3px; border-radius: 50%; pointer-events: none; background: radial-gradient(#fff6d6, #d9b46a 60%, transparent 72%); animation: burst 1.1s cubic-bezier(.1, .7, .3, 1) both; }
+@keyframes burst { from { opacity: 1; } to { opacity: 0; transform: translate(var(--x), var(--y)) scale(.2); } }
+
+/* Hero choreography: arch rises, then the names are written in, one after the other */
+.js-ready .wine-page:not(.revealed) :is(.hero-art, .hero-copy .eyebrow, #bride-name, .hero .ampersand, #groom-name, .hero-meta, .hero .button-row) { opacity: 0; }
+.revealed .hero-art { animation: arch 1.5s calc(var(--t) + .1s) var(--ease) both; }
+.revealed .hero-copy .eyebrow { animation: rise 1s calc(var(--t) + .9s) var(--ease) both; }
+.revealed #bride-name { animation: ink 1.7s calc(var(--t) + 1.2s) cubic-bezier(.5, 0, .2, 1) both; }
+.revealed .hero .ampersand { animation: pop 1s calc(var(--t) + 2.5s) var(--ease) both; }
+.revealed #groom-name { animation: ink 1.7s calc(var(--t) + 2.7s) cubic-bezier(.5, 0, .2, 1) both; }
+.revealed :is(.hero-meta, .hero .button-row) { animation: rise 1s calc(var(--t) + 4.1s) var(--ease) both; }
+@keyframes rise { from { opacity: 0; translate: 0 18px; } }
+@keyframes arch { from { opacity: 0; translate: 0 40px; scale: .94; } }
+@keyframes pop { from { opacity: 0; scale: .4; rotate: -20deg; } }
+@keyframes ink { from { opacity: .2; filter: blur(3px); clip-path: inset(-20% 100% -20% -10%); } to { clip-path: inset(-20% -10% -20% -10%); } }
+
+/* Stationery details: gold frames settle in, photographs develop */
+.wine-page .frame-card { position: relative; }
+.wine-page .frame-card::after { content: ''; position: absolute; inset: 30px 16px; border: 1px solid #b9946799; pointer-events: none; opacity: 0; scale: 1.05; transition: opacity 1.2s, scale 1.6s var(--ease); }
+.wine-page .frame-card.in::after { opacity: 1; scale: 1; }
+.story-photo img { --f: sepia(.18) saturate(.75); }
+.portrait-companion img { --f: grayscale(1); }
+.js-ready .develop { filter: blur(10px) sepia(.7) brightness(1.15); scale: 1.06; transition: filter 1.8s var(--ease), scale 2.2s var(--ease); }
+.js-ready .develop.in { filter: var(--f, none); scale: 1; }

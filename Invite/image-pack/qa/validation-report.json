@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checks": 94,
+  "failed": [],
+  "notes": [
+    "Image service returned composite boards despite standalone constraints; core photos are individual crops from those boards.",
+    "Gallery alternatives are post-processed derivatives, not independent new scenes.",
+    "Original application source project was not available; this is an asset drop-in package."
+  ]
+}

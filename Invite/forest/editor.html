@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+  <title>Invitation editor | Kamishi & Anuragh</title>
+  <link rel="icon" href="assets/monogram.svg"><link rel="stylesheet" href="fonts.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="editor.css">
+  <script src="settings.js" defer></script><script src="shared.js" defer></script><script src="editor.js" defer></script>
+</head>
+<body class="editor-page forest-page">
+  <header class="site-header"><a class="brand" href="index.html"><span class="monogram">K<span>&</span>A</span> <span>Invitation editor / निमंत्रण संपादक</span></a><a class="text-link" href="index.html">Guest view ↗</a></header>
+  <main class="editor-wrap">
+    <p class="eyebrow">A PERSONAL INVITATION, MADE YOURS</p><h1>The little details.</h1>
+    <p>Edit both languages below. Save a local draft to preview it, then download <code>settings.js</code>, replace the file in this folder and redeploy to publish your changes.</p>
+    <p lang="hi">नीचे दोनों भाषाओं में विवरण बदलें। पूर्वावलोकन के लिए स्थानीय प्रारूप सहेजें। प्रकाशित करने के लिए <code>settings.js</code> डाउनलोड करें, इस फ़ोल्डर की फ़ाइल बदलें और साइट दोबारा अपलोड करें।</p>
+    <aside class="editor-note"><strong>This editor saves only to your browser / केवल ब्राउज़र में सहेजता है।</strong><p>It does not change the live website. Keep private guest lists, budgets, passwords and service keys out of these public settings. Open the site through the preview server for reliable draft previews.</p><p>All dates and times remain blank until you enter them. Verify the Hindi spelling of both names with the couple. Event <strong>confirmed</strong> enables calendar downloads when a date, start time and end time are present. All times use IST; end times must be on the same day.</p></aside>
+    <p><strong>New sections:</strong> event attire also fills the Dress Code guide. Accommodation selects a venue ID; leave it blank to hide the section. Edit Gifts & blessings in both languages, or clear the note to hide it. The paired portraits and swipe gallery reuse your three Photos paths.</p>
+    <form id="editor-form">
+      <div class="editor-actions"><button class="button primary" type="submit">Save draft / प्रारूप सहेजें</button><a class="button secondary" href="index.html?preview=1" target="_blank" rel="noopener">Preview saved draft ↗</a><button id="download-settings" class="button secondary" type="button">Download settings.js ↓</button><button id="download-json" class="text-link" type="button">Backup JSON ↓</button></div>
+      <p id="editor-status" role="status" aria-live="polite"></p>
+      <div id="editor-fields"></div>
+    </form>
+    <details class="editor-tools"><summary>Import or reset / आयात या रीसेट</summary><p>Import a JSON backup created here. Reset discards only this editor’s local draft and restores the deployed settings.js.</p><label>Import backup JSON <input id="import-json" type="file" accept="application/json,.json"></label><button id="reset-draft" class="button secondary" type="button">Reset to published settings</button></details>
+    <section class="editor-note"><h2>Photos, voice & RSVP</h2>
+      <p><strong>Photos:</strong> put replacement JPG, PNG or WebP files in <code>assets/</code>, then edit their paths in the Photos section. The supplied original photograph remains at <code>assets/couple.jpg</code>; the current portraits are <code>assets/hero-portrait.jpg</code>, <code>assets/story-portrait.jpg</code> and <code>assets/closing-portrait.jpg</code>. <code>photos.hero</code> supplies the arched portrait; <code>photos.story</code> supplies the framed story photo; <code>photos.closing</code> supplies the closing cameo.</p>
+      <p><strong>Music:</strong> the floating speaker starts or mutes music. Leave <code>audio.music</code> blank for the gentle synthesized melody, or put your own recording in <code>assets/</code> and set <code>audio.music</code> to its path, for example <code>assets/music.mp3</code>. Scrolling does not restart sound. MP3, WAV, OGG, M4A and AAC paths are supported.</p>
+      <p lang="hi">स्पीकर छूने पर संगीत चलता या बंद होता है। संगीत वाले भाग में <code>audio.music</code> खाली छोड़ने पर हल्का संगीत बजता है; अपनी रिकॉर्डिंग के लिए फ़ाइल <code>assets/</code> में रखें और उसका पथ भरें। नीचे स्क्रॉल करने से संगीत दोबारा शुरू नहीं होता।</p>
+      <p><strong>Free RSVP:</strong> create a Google Form with bilingual questions and link its responses to a Google Sheet. Set mode to <code>link</code> and paste its responder URL into <code>formUrl</code>. Keep the response Sheet restricted to the family. Test the form signed out and check that a response arrives. <code>off</code> shows “opening soon”; <code>netlify</code> is only for an existing Netlify Forms deployment.</p>
+      <p lang="hi">निःशुल्क उपस्थिति व्यवस्था के लिए गूगल फ़ॉर्म बनाएँ, उत्तर गूगल शीट से जोड़ें, मोड <code>link</code> चुनें और <code>formUrl</code> में अतिथियों वाला लिंक डालें।</p>
+      <p><strong>Free publishing:</strong> upload this <code>forest</code> folder or <code>forest.zip</code> to Cloudflare Pages on the Free plan. Use its included <code>pages.dev</code> address for WhatsApp and link sharing. Settings, photos and recordings live in that same deployment. The opening card uses your hero photograph; draft previews skip the opening. Changes here affect only this design; copy your exported settings and any added assets into <code>wine</code> to update both. See <code>Invite/README.md</code> for the full guide.</p>
+    </section>
+  </main>
+</body>
+</html>

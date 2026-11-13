@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<defs></defs>
+
+    <g stroke="#70283E" stroke-width="8">
+      <path d="M100 850V420C100 230 230 90 400 90s300 140 300 330v430"/>
+      <path d="M150 850V430c0-155 112-278 250-278s250 123 250 278v420" stroke="#C6A66A" stroke-width="4"/>
+      <path d="M230 850V470h340v380M205 470h390"/>
+      <path d="M270 470V350c0-95 58-160 130-160s130 65 130 160v120"/>
+      <path d="M315 345c0-78 38-128 85-128s85 50 85 128" stroke="#C6A66A" stroke-width="5"/>
+      <path d="M375 215V145M350 170h50" stroke="#C6A66A" stroke-width="8"/>
+      <path d="M300 850V620c0-72 45-115 100-115s100 43 100 115v230"/>
+      <path d="M245 850V550M555 850V550M230 550h30M540 550h30"/>
+      <path d="M185 850h430M160 890h480" stroke="#C6A66A" stroke-width="7"/>
+    </g>
+    <g stroke="#B78378" stroke-width="5">
+      <path d="M90 840c-40-70-44-145-8-207m8 207c-60-22-76-62-72-100m72 100c52-25 68-65 61-105"/>
+      <path d="M710 840c40-70 44-145 8-207m-8 207c60-22 76-62 72-100m-72 100c-52-25-68-65-61-105"/>
+      <path d="M80 685l-35-34m52 78l38-42M720 685l35-34m-52 78l-38-42"/>
+    </g>
+    <g stroke="#C6A66A" stroke-width="5" fill="none">
+      <circle cx="370" cy="650" r="24"/><circle cx="412" cy="650" r="24"/>
+      <path d="M370 650c-20-26-45-17-45 4 0 22 37 42 45 49 8-7 45-27 45-49 0-21-25-30-45-4z"/>
+    </g>
+    <g stroke="#70283E" stroke-width="7">
+      <circle cx="315" cy="730" r="42"/><path d="M285 780l-34 70m64-70l25 70M485 730c0-23 18-42 42-42s42 19 42 42v50h-84z"/><path d="M490 780l-25 70m64-70l34 70"/>
+    </g>
+    <g stroke="#C6A66A" stroke-width="5"><path d="M240 870h320"/><path d="M400 560v-55"/></g>
+    
+</svg>

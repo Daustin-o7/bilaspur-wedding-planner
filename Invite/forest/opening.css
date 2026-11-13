@@ -1,0 +1,117 @@
+:root { --opening-duration: 2800ms; --opening-ease: cubic-bezier(.22, .7, .15, 1); }
+body:has(#invitation-cover[open]) { overflow: hidden; }
+#invitation-cover { width: 100%; height: 100%; max-width: none; max-height: none; inset: 0; margin: 0; padding: 36px 22px; border: 0; color: var(--forest); background: transparent; overflow: auto; }
+#invitation-cover[open] { display: grid; place-items: center; }
+#invitation-cover::backdrop { background: radial-gradient(ellipse at 50% 45%, var(--white), var(--cream)); backdrop-filter: none; }
+#invitation-cover::before { content: ''; position: fixed; inset: 18px; border: 1px solid var(--line); pointer-events: none; }
+.cover-content { width: min(100%, 620px); text-align: center; }
+.collection-name { display: block; margin-bottom: 14px; font: 600 10px/1 var(--sans); letter-spacing: .44em; text-indent: .44em; text-transform: uppercase; color: var(--gold); }
+.forest-page .collection-name { color: #dac393; }
+.cover-content > .eyebrow { margin-bottom: 12px; }
+#invitation-cover .eyebrow { font-family: var(--sans); }
+#cover-title { font-size: clamp(50px, 7vw, 85px); margin-bottom: 58px; }
+.opening-object { position: relative; display: block; width: min(100%, 420px); aspect-ratio: 1.6; margin: 0 auto 38px; padding: 0; background: #d8bfb0; box-shadow: 0 25px 50px #5c332627, 0 2px 5px #5c332620; perspective: 1200px; isolation: isolate; overflow: visible; }
+.opening-object:disabled { opacity: 1; }
+.invitation-letter { position: absolute; inset: 10px 18px; display: flex; align-items: stretch; padding: 10px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 4px 14px #30251b15; z-index: 1; transform-origin: center; pointer-events: none; }
+.invitation-letter img { width: 42%; min-width: 0; height: 100%; object-fit: cover; object-position: 48% 30%; }
+.forest-page .invitation-letter img { object-position: 60% 30%; }
+.letter-copy { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 10px; flex: 1; min-width: 0; padding: 8px; }
+.letter-copy .little-cross { display: block; font-size: 20px; margin: 0; color: var(--gold); }
+#letter-names { font: 22px/1.1 var(--serif); overflow-wrap: anywhere; }
+.letter-caption { font: 7px/1.5 var(--sans); letter-spacing: 1px; color: var(--gold); }
+.envelope-pocket { position: absolute; inset: 0; background: linear-gradient(32deg, #e8d5c6 49.7%, #c9ac9722 50%, transparent 50.3%), linear-gradient(-32deg, #efddce 49.7%, #c9ac9722 50%, transparent 50.3%); z-index: 2; pointer-events: none; }
+.envelope-flap { position: absolute; inset: 0; background: #f2e3d6; clip-path: polygon(0 0, 100% 0, 50% 58%); transform-origin: top; z-index: 3; pointer-events: none; }
+.wax-seal { position: absolute; left: calc(50% - 37px); top: calc(53% - 37px); z-index: 4; display: flex; align-items: center; justify-content: center; width: 74px; height: 74px; border: 4px double #be7d7f; border-radius: 48% 52% 46% 54%; background: radial-gradient(at 35% 25%, #a65c65, #6b2838 70%); color: #f1d5bd; box-shadow: 1px 4px 8px #47202b55, inset 0 0 0 4px #742d3d; font: 27px var(--serif); pointer-events: none; }
+.wax-seal i { font-size: 20px; }
+.envelope-action { position: absolute; left: 12px; right: 12px; bottom: 18px; z-index: 3; font-size: 12px; letter-spacing: 1px; }
+.envelope-action > span:last-child { margin-left: 12px; }
+#cover-names { font: 24px/1.4 var(--serif); margin: 0 auto 10px; max-width: 400px; }
+#cover-note { font: 12px/1.7 var(--sans); color: var(--muted); margin-bottom: 8px; }
+#cover-language { color: var(--forest); }
+.folded-card { background: var(--paper); }
+.card-door { position: absolute; top: 0; bottom: 0; width: 50%; display: grid; place-items: center; background: var(--forest); color: #dcc396; border: 1px solid #b99d6870; outline: 1px solid #b99d6870; outline-offset: -12px; z-index: 3; font: italic 75px var(--serif); backface-visibility: hidden; pointer-events: none; }
+.card-door.left { left: 0; transform-origin: left; }
+.card-door.right { right: 0; transform-origin: right; }
+.folded-card .wax-seal { background: radial-gradient(at 35% 25%, #b99d68, #80633f); color: var(--paper); border-color: #d8c498; box-shadow: 0 4px 8px #10201755, inset 0 0 0 4px #80633f; }
+.folded-card .envelope-action { color: var(--paper); }
+
+#invitation-cover.is-opening { animation: cover-dismiss var(--opening-duration) linear both; pointer-events: none; overflow: clip; }
+#invitation-cover.is-opening::backdrop { animation: backdrop-dismiss var(--opening-duration) linear both; }
+.is-opening .opening-object { animation: envelope-settle var(--opening-duration) var(--opening-ease) both; }
+.is-opening .envelope-flap { animation: flap-unfold var(--opening-duration) var(--opening-ease) both; }
+.is-opening .wax-seal { animation: seal-release var(--opening-duration) var(--opening-ease) both; }
+.is-opening .invitation-letter { animation: letter-emerge var(--opening-duration) var(--opening-ease) both; }
+.is-opening .card-door.left { animation: card-unfold-left var(--opening-duration) var(--opening-ease) both; }
+.is-opening .card-door.right { animation: card-unfold-right var(--opening-duration) var(--opening-ease) both; }
+.is-opening .cover-content > :not(.opening-object), .is-opening::before, .is-opening .envelope-action { animation: cover-copy-dismiss var(--opening-duration) ease both; }
+.invitation-opening > main { transform-origin: 50% 0; animation: invitation-arrive var(--opening-duration) var(--opening-ease) both; }
+
+@keyframes seal-release { 0% { opacity: 1; transform: none; } 14%, 100% { opacity: 0; transform: translateY(-12px) rotate(-12deg) scale(1.15); } }
+@keyframes flap-unfold { 0%, 8% { transform: rotateX(0); } 35%, 100% { transform: rotateX(178deg); } }
+@keyframes card-unfold-left { 0%, 10% { transform: rotateY(0); } 45%, 100% { transform: rotateY(-155deg); } }
+@keyframes card-unfold-right { 0%, 14% { transform: rotateY(0); } 49%, 100% { transform: rotateY(155deg); } }
+@keyframes cover-copy-dismiss { 0% { opacity: 1; } 22%, 100% { opacity: 0; } }
+@keyframes envelope-settle { 0%, 30% { transform: none; box-shadow: 0 25px 50px #5c332627; } 68% { transform: translateY(24%); } 100% { transform: translateY(55%); box-shadow: 0 0 0 transparent; } }
+@keyframes letter-emerge {
+  0%, 30% { transform: none; z-index: 1; opacity: 1; }
+  58% { transform: translateY(-106%) rotate(-2deg) scale(1.06); z-index: 1; opacity: 1; }
+  59% { z-index: 5; }
+  72% { transform: translateY(-100%) rotate(0) scale(1.22); z-index: 5; opacity: 1; }
+  100% { transform: translateY(-60%) scale(3.4); z-index: 5; opacity: 0; }
+}
+@keyframes cover-dismiss { 0%, 78% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes backdrop-dismiss { 0%, 65% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes invitation-arrive { 0%, 62% { opacity: 0; transform: translateY(70px) scale(.94); } 100% { opacity: 1; transform: none; } }
+
+.forest-page #invitation-cover::backdrop { background: radial-gradient(ellipse at 50% 45%, #345744, #102e25); }
+.forest-page #invitation-cover { color: #f3e4c5; }
+.forest-page #cover-title { color: #f3e4c5; }
+.forest-page #invitation-cover::before { border-color: #c0a46a70; border-radius: 46% 46% 0 0 / 28% 28% 0 0; inset: 20px max(20px, calc(50% - 290px)); }
+.forest-page #invitation-cover .eyebrow, .forest-page #cover-note, .forest-page #cover-language { color: #dac393; }
+.forest-page .folded-card { box-shadow: 0 25px 60px #061c1c80; }
+.forest-page .card-door { background: radial-gradient(ellipse at 0 0, #3f5c43, #193e32); }
+.forest-page .invitation-letter { color: #183e32; }
+.wine-page #invitation-cover::backdrop { background: radial-gradient(ellipse at 50% 35%, #fffbf4, #e7d9c9); }
+.wine-page #cover-title { font: 66px/.98 var(--serif); letter-spacing: -.045em; margin-bottom: 45px; }
+.wine-page #cover-title em { font-style: italic; color: #987660; }
+.wine-page #invitation-cover::before { inset: 22px; }
+.wine-page .envelope { rotate: -3deg; }
+.wine-page .is-opening .envelope { rotate: 0deg; transition: rotate .5s; }
+.wine-page .envelope-flap { background: linear-gradient(165deg, #fff7e9, #e3cdb9); }
+.wine-page #cover-names { font-style: italic; }
+html[lang=hi] #cover-title { font-size: clamp(34px, 5vw, 58px); }
+html[lang=hi] .wine-page #cover-title { font-family: 'Noto Serif Devanagari', serif; line-height: 1.6; letter-spacing: 0; }
+html[lang=hi] #cover-names { font-size: 21px; line-height: 1.8; }
+html[lang=hi] #letter-names { font-size: 18px; line-height: 1.6; }
+@media (max-width: 720px) {
+  #invitation-cover { padding: 35px 28px; }
+  #invitation-cover::before { inset: 12px; }
+  #cover-title { margin-bottom: 46px; }
+  .opening-object { margin-bottom: 28px; }
+  #cover-names { font-size: 23px; }
+  #letter-names { font-size: 18px; }
+  .letter-copy { gap: 6px; }
+  .letter-caption { font-size: 6px; letter-spacing: .5px; }
+  html[lang=hi] #letter-names { font-size: 15px; }
+}
+@media (max-width: 360px) {
+  .wine-page #cover-title { font-size: 44px; }
+  html[lang=hi] .wine-page #cover-title { font-size: 34px; }
+  .wax-seal { width: 62px; height: 62px; left: calc(50% - 31px); top: calc(50% - 31px); font-size: 24px; }
+  .envelope-action { font-size: 11px; bottom: 14px; }
+  .invitation-letter { inset: 8px; padding: 6px; }
+  #letter-names { font-size: 16px; }
+  html[lang=hi] #letter-names { font-size: 13px; }
+}
+@media (max-height: 760px) {
+  #invitation-cover { padding-block: 24px; }
+  #cover-title { font-size: 58px; margin-bottom: 30px; }
+  .opening-object { width: min(100%, 340px); margin-bottom: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #invitation-cover, #invitation-cover *, #invitation-cover::before, #invitation-cover::backdrop, .invitation-opening > main { animation: none !important; transition: none !important; }
+}
+@media print {
+  body:has(#invitation-cover[open]) { overflow: visible; }
+  #invitation-cover { display: none !important; }
+}
